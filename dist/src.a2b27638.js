@@ -35644,39 +35644,43 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Image = exports.SubTitle = exports.Title = exports.Container = exports.Item = exports.Inner = void 0;
+exports.Image = exports.SubTitle = exports.Title = exports.Container = exports.Pane = exports.Item = exports.Inner = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Inner = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-direction: ", ";\n  max-width: 1100px;\n  margin: auto;\n  width: 100%;\n\n  @media (max-width: 1000px) {\n    flex-direction: column;\n  }\n"])), function (props) {
+var Inner = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-direction: ", ";\n  max-width: 1100px;\n  margin: auto;\n  padding: 1em;\n  @media (max-width: 650px) {\n    flex-direction: column;\n  }\n"])), function (props) {
   return props.direction;
 });
 
 exports.Inner = Inner;
 
-var Item = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n"])));
+var Item = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  color: white;\n"])));
 
 exports.Item = Item;
 
-var Container = _styledComponents.default.section(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral([""])));
+var Pane = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  width: 50%;\n  @media (max-width: 650px) {\n    width: 100%;\n    text-align: center;\n  }\n"])));
+
+exports.Pane = Pane;
+
+var Container = _styledComponents.default.section(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  background-color: black;\n  width: 100%;\n"])));
 
 exports.Container = Container;
 
-var Title = _styledComponents.default.h1(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  font-size: 3rem;\n  line-height: 1.1;\n  margin-bottom: 8px;\n\n  @media (max-width: 600px) {\n    font-size: 2.2rem;\n  }\n"])));
+var Title = _styledComponents.default.h1(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  font-size: 3rem;\n  line-height: 1.1;\n  margin-bottom: 8px;\n\n  @media (max-width: 600px) {\n    font-size: 2.2rem;\n  }\n"])));
 
 exports.Title = Title;
 
-var SubTitle = _styledComponents.default.h2(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  font-size: 1.5rem;\n  font-weight: normal;\n  line-height: normal;\n\n  @media (max-width: 600px) {\n    font-size: 1.1rem;\n  }\n"])));
+var SubTitle = _styledComponents.default.h2(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  font-size: 1.5rem;\n  font-weight: normal;\n  line-height: normal;\n\n  @media (max-width: 600px) {\n    font-size: 1.1rem;\n  }\n"])));
 
 exports.SubTitle = SubTitle;
 
-var Image = _styledComponents.default.img(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  max-width: 100%;\n  height: auto;\n"])));
+var Image = _styledComponents.default.img(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  max-width: 100%;\n  height: auto;\n"])));
 
 exports.Image = Image;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/jumbotron/index.js":[function(require,module,exports) {
@@ -35734,9 +35738,42 @@ Jumbotron.SubTitle = function JumbotronSubTitle(_ref4) {
   return /*#__PURE__*/_react.default.createElement(_jumbotron.SubTitle, restProps, children);
 };
 
+Jumbotron.Pane = function JumbotronImage(_ref5) {
+  var restProps = Object.assign({}, _ref5);
+  return /*#__PURE__*/_react.default.createElement(_jumbotron.Pane, restProps);
+};
+
+Jumbotron.Image = function JumbotronImage(_ref6) {
+  var restProps = Object.assign({}, _ref6);
+  return /*#__PURE__*/_react.default.createElement(_jumbotron.Image, restProps);
+};
+
 var _default = Jumbotron;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./styles/jumbotron":"src/components/jumbotron/styles/jumbotron.js"}],"src/pages/home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/jumbotron":"src/components/jumbotron/styles/jumbotron.js"}],"src/fixtures/jumbo.json":[function(require,module,exports) {
+module.exports = [{
+  "id": 1,
+  "title": "Enjoy on your TV.",
+  "subTitle": "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
+  "image": "./images/misc/home-tv.jpg",
+  "alt": "Tiger King on Netflix",
+  "direction": "row"
+}, {
+  "id": 2,
+  "title": "Download your programmes to watch on the go.",
+  "subTitle": "Save your data and watch all your favourites offline.",
+  "image": "./images/misc/home-mobile.jpg",
+  "alt": "Tiger King on Netflix",
+  "direction": "row-reverse"
+}, {
+  "id": 3,
+  "title": "Watch everywhere.",
+  "subTitle": "Stream unlimited films and TV programmes on your phone, tablet, laptop and TV without paying more.",
+  "image": "./images/misc/home-imac.jpg",
+  "alt": "Money Heist on Netflix",
+  "direction": "row"
+}];
+},{}],"src/containers/jumbotron.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35748,15 +35785,45 @@ var _react = _interopRequireDefault(require("react"));
 
 var _jumbotron = _interopRequireDefault(require("../components/jumbotron"));
 
+var _jumbo = _interopRequireDefault(require("../fixtures/jumbo.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var JumbotronContainer = function JumbotronContainer() {
+  return /*#__PURE__*/_react.default.createElement(_jumbotron.default.Container, null, _jumbo.default.map(function (item) {
+    return /*#__PURE__*/_react.default.createElement(_jumbotron.default, {
+      key: item.id,
+      direction: item.direction
+    }, /*#__PURE__*/_react.default.createElement(_jumbotron.default.Pane, null, /*#__PURE__*/_react.default.createElement(_jumbotron.default.Title, null, item.title), /*#__PURE__*/_react.default.createElement(_jumbotron.default.SubTitle, null, item.subTitle)), /*#__PURE__*/_react.default.createElement(_jumbotron.default.Pane, null, /*#__PURE__*/_react.default.createElement(_jumbotron.default.Image, {
+      src: item.image,
+      alt: item.alt
+    })));
+  }));
+};
+
+var _default = JumbotronContainer;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../components/jumbotron":"src/components/jumbotron/index.js","../fixtures/jumbo.json":"src/fixtures/jumbo.json"}],"src/pages/home.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _jumbotron = _interopRequireDefault(require("../containers/jumbotron"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
-  return /*#__PURE__*/_react.default.createElement(_jumbotron.default.Container, null, /*#__PURE__*/_react.default.createElement(_jumbotron.default.Title, null, "Hello"), /*#__PURE__*/_react.default.createElement(_jumbotron.default.SubTitle, null, "Hello"));
+  return /*#__PURE__*/_react.default.createElement(_jumbotron.default, null);
 };
 
 var _default = Home;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../components/jumbotron":"src/components/jumbotron/index.js"}],"src/app.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/jumbotron":"src/containers/jumbotron.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35823,7 +35890,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2740" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3329" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -7,18 +7,29 @@ export const Inner = styled.div`
   flex-direction: ${(props) => props.direction};
   max-width: 1100px;
   margin: auto;
-  width: 100%;
-
-  @media (max-width: 1000px) {
+  padding: 1em;
+  @media (max-width: 650px) {
     flex-direction: column;
   }
 `;
 
 export const Item = styled.div`
   display: flex;
+  color: white;
 `;
 
-export const Container = styled.section``;
+export const Pane = styled.div`
+  width: 50%;
+  @media (max-width: 650px) {
+    width: 100%;
+    text-align: center;
+  }
+`;
+
+export const Container = styled.section`
+  background-color: black;
+  width: 100%;
+`;
 
 export const Title = styled.h1`
   font-size: 3rem;
