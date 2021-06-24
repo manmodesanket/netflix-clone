@@ -35654,7 +35654,164 @@ if ("development" !== "production") {
     style: _propTypes.default.object
   });
 }
-},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"src/components/jumbotron/styles/jumbotron.js":[function(require,module,exports) {
+},{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"src/components/accordian/styles/accordian.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Body = exports.Header = exports.Title = exports.Item = exports.Inner = exports.Frame = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  border-bottom: 8px solid #222;\n"])));
+
+exports.Container = Container;
+
+var Frame = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  margin-bottom: 40px;\n"])));
+
+exports.Frame = Frame;
+
+var Inner = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  padding: 70px 45px;\n  flex-direction: column;\n  margin: auto;\n  width: 100%;\n"])));
+
+exports.Inner = Inner;
+
+var Item = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  color: white;\n  margin-bottom: 10px;\n  width: 100%;\n\n  &:first-of-type {\n    margin-top: 3em;\n  }\n\n  @media (min-width: 650px) {\n    margin: 0 auto 10px;\n    max-width: 700px;\n  }\n"])));
+
+exports.Item = Item;
+
+var Title = _styledComponents.default.h1(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  font-size: 50px;\n  line-height: 1.1;\n  margin-top: 0;\n  margin-bottom: 8px;\n  color: white;\n  text-align: center;\n\n  @media (max-width: 650px) {\n    font-size: 35px;\n  }\n"])));
+
+exports.Title = Title;
+
+var Header = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-between;\n  cursor: pointer;\n  margin-bottom: 1px;\n  font-size: 26px;\n  font-weight: normal;\n  background: #303030;\n  padding: 0.8em 1.2em 0.8em 1.2em;\n  user-select: none;\n  align-items: center;\n  width: 100%;\n\n  img {\n    filter: brightness(0) invert(1);\n    width: 24px;\n\n    @media (max-width: 600px) {\n      width: 16px;\n    }\n  }\n\n  @media (max-width: 600px) {\n    font-size: 16px;\n  }\n"])));
+
+exports.Header = Header;
+
+var Body = _styledComponents.default.div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  transition: max-height 0.25s cubic-bezier(0.5, 0, 0.1, 1);\n  font-size: 26px;\n  font-weight: normal;\n  line-height: normal;\n  background: #303030;\n  padding: 0.8em 1.2em 0.8em 1.2em;\n  user-select: none;\n  align-items: center;\n  width: 100%;\n\n  @media (max-width: 600px) {\n    font-size: 16px;\n    line-height: 22px;\n  }\n"])));
+
+exports.Body = Body;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/accordian/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _accordian = require("./styles/accordian");
+
+var _excluded = ["children"],
+    _excluded2 = ["children"],
+    _excluded3 = ["children"],
+    _excluded4 = ["children"],
+    _excluded5 = ["children"],
+    _excluded6 = ["children"];
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var ToggleContext = (0, _react.createContext)();
+
+var Accordian = function Accordian(_ref) {
+  var children = _ref.children,
+      restprops = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/_react.default.createElement(_accordian.Container, restprops, /*#__PURE__*/_react.default.createElement(_accordian.Inner, null, children));
+};
+
+Accordian.Frame = function AccordianFrame(_ref2) {
+  var children = _ref2.children,
+      restprops = _objectWithoutProperties(_ref2, _excluded2);
+
+  return /*#__PURE__*/_react.default.createElement(_accordian.Frame, restprops, children);
+};
+
+Accordian.Item = function AccordianTitle(_ref3) {
+  var children = _ref3.children,
+      restprops = _objectWithoutProperties(_ref3, _excluded3);
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      toggleShow = _useState2[0],
+      setToggleShow = _useState2[1];
+
+  return /*#__PURE__*/_react.default.createElement(ToggleContext.Provider, {
+    value: {
+      toggleShow: toggleShow,
+      setToggleShow: setToggleShow
+    }
+  }, /*#__PURE__*/_react.default.createElement(_accordian.Item, restprops, children));
+};
+
+Accordian.Title = function AccordianTtitle(_ref4) {
+  var children = _ref4.children,
+      restprops = _objectWithoutProperties(_ref4, _excluded4);
+
+  return /*#__PURE__*/_react.default.createElement(_accordian.Title, restprops, children);
+};
+
+Accordian.Header = function AccordionHeader(_ref5) {
+  var children = _ref5.children,
+      restProps = _objectWithoutProperties(_ref5, _excluded5);
+
+  var _useContext = (0, _react.useContext)(ToggleContext),
+      toggleShow = _useContext.toggleShow,
+      setToggleShow = _useContext.setToggleShow;
+
+  return /*#__PURE__*/_react.default.createElement(_accordian.Header, _extends({
+    onClick: function onClick() {
+      return setToggleShow(!toggleShow);
+    }
+  }, restProps), children, toggleShow ? /*#__PURE__*/_react.default.createElement("img", {
+    src: "/images/icons/close-slim.png",
+    alt: "Close"
+  }) : /*#__PURE__*/_react.default.createElement("img", {
+    src: "/images/icons/add.png",
+    alt: "Open"
+  }));
+};
+
+Accordian.Body = function AccordionBody(_ref6) {
+  var children = _ref6.children,
+      restProps = _objectWithoutProperties(_ref6, _excluded6);
+
+  var _useContext2 = (0, _react.useContext)(ToggleContext),
+      toggleShow = _useContext2.toggleShow;
+
+  return toggleShow ? /*#__PURE__*/_react.default.createElement(_accordian.Body, restProps, children) : null;
+};
+
+var _default = Accordian;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./styles/accordian":"src/components/accordian/styles/accordian.js"}],"src/components/jumbotron/styles/jumbotron.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35889,6 +36046,12 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "Accordian", {
+  enumerable: true,
+  get: function () {
+    return _accordian.default;
+  }
+});
 Object.defineProperty(exports, "Jumbotron", {
   enumerable: true,
   get: function () {
@@ -35902,12 +36065,61 @@ Object.defineProperty(exports, "Footer", {
   }
 });
 
+var _accordian = _interopRequireDefault(require("./accordian"));
+
 var _jumbotron = _interopRequireDefault(require("./jumbotron"));
 
 var _footer = _interopRequireDefault(require("./footer"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js"}],"src/containers/footer.js":[function(require,module,exports) {
+},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
+module.exports = [{
+  "id": 1,
+  "header": "What is Netflix?",
+  "body": "Netflix is a streaming service that offers a wide variety of award-winning TV programmes, films, anime, documentaries and more – on thousands of internet-connected devices.\n\nYou can watch as much as you want, whenever you want, without a single advert – all for one low monthly price. There's always something new to discover, and new TV programmes and films are added every week!"
+}, {
+  "id": 2,
+  "header": "How much does Netflix cost?",
+  "body": "Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹ 199 to ₹ 799 a month. No extra costs, no contracts."
+}, {
+  "id": 3,
+  "header": "Where can I watch?",
+  "body": "Watch anywhere, anytime, on an unlimited number of devices. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.\n\nYou can also download your favourite programmes with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere."
+}, {
+  "id": 4,
+  "header": "How do I cancel?",
+  "body": "Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account at any time."
+}, {
+  "id": 5,
+  "header": "What can I watch on Netflix?",
+  "body": "Netflix has an extensive library of feature films, documentaries, TV programmes, anime, award-winning Netflix originals, and more. Watch as much as you want, any time you want."
+}];
+},{}],"src/containers/faqs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FaqContainer = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _components = require("../components");
+
+var _faqs = _interopRequireDefault(require("../fixtures/faqs.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FaqContainer = function FaqContainer() {
+  return /*#__PURE__*/_react.default.createElement(_components.Accordian, null, /*#__PURE__*/_react.default.createElement(_components.Accordian.Title, null, "Frequently Asked Questions"), /*#__PURE__*/_react.default.createElement(_components.Accordian.Frame, null, _faqs.default.map(function (item) {
+    return /*#__PURE__*/_react.default.createElement(_components.Accordian.Item, {
+      key: item.id
+    }, /*#__PURE__*/_react.default.createElement(_components.Accordian.Header, null, item.header), /*#__PURE__*/_react.default.createElement(_components.Accordian.Body, null, item.body));
+  })));
+};
+
+exports.FaqContainer = FaqContainer;
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../fixtures/faqs.json":"src/fixtures/faqs.json"}],"src/containers/footer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36022,6 +36234,8 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _faqs = require("../containers/faqs");
+
 var _footer = require("../containers/footer");
 
 var _jumbotron = require("../containers/jumbotron");
@@ -36029,12 +36243,12 @@ var _jumbotron = require("../containers/jumbotron");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_jumbotron.JumbotronContainer, null), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_jumbotron.JumbotronContainer, null), /*#__PURE__*/_react.default.createElement(_faqs.FaqContainer, null), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
 };
 
 var _default = Home;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../containers/footer":"src/containers/footer.js","../containers/jumbotron":"src/containers/jumbotron.js"}],"src/app.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/faqs":"src/containers/faqs.js","../containers/footer":"src/containers/footer.js","../containers/jumbotron":"src/containers/jumbotron.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
