@@ -16,6 +16,8 @@ export const Inner = styled.div`
 export const Item = styled.div`
   display: flex;
   color: white;
+  border-bottom: 8px solid #222;
+  overflow: hidden;
 `;
 
 export const Pane = styled.div`
