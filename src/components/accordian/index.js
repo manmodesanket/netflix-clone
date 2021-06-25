@@ -20,28 +20,43 @@ const Accordian = ({ children, ...restprops }) => {
 };
 
 Accordian.Frame = function AccordianFrame({ children, ...restprops }) {
-  return <Frame {...restprops}>{children}</Frame>;
+  const [toggleShow, setToggleShow] = useState({ id: -1 });
+  return (
+    <ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
+      <Frame {...restprops}>{children}</Frame>
+    </ToggleContext.Provider>
+  );
 };
 
 Accordian.Item = function AccordianTitle({ children, ...restprops }) {
-  const [toggleShow, setToggleShow] = useState(false);
-  return (
-    <ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
-      <Item {...restprops}>{children}</Item>
-    </ToggleContext.Provider>
-  );
+  return <Item {...restprops}>{children}</Item>;
 };
 
 Accordian.Title = function AccordianTtitle({ children, ...restprops }) {
   return <Title {...restprops}>{children}</Title>;
 };
 
-Accordian.Header = function AccordionHeader({ children, ...restProps }) {
+Accordian.Header = function AccordionHeader({
+  children,
+  itemId,
+  ...restProps
+}) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
+
+  const handleItemBody = () => {
+    if (toggleShow.id !== itemId) {
+      const toggleObj = { id: itemId };
+      setToggleShow(toggleObj);
+    } else if (toggleShow.id === itemId) {
+      const toggleObj = { id: -1 };
+      setToggleShow(toggleObj);
+    }
+  };
+
   return (
-    <Header onClick={() => setToggleShow(!toggleShow)} {...restProps}>
+    <Header onClick={() => handleItemBody()} {...restProps}>
       {children}
-      {toggleShow ? (
+      {toggleShow.id === itemId.id ? (
         <img src="/images/icons/close-slim.png" alt="Close" />
       ) : (
         <img src="/images/icons/add.png" alt="Open" />
@@ -50,9 +65,11 @@ Accordian.Header = function AccordionHeader({ children, ...restProps }) {
   );
 };
 
-Accordian.Body = function AccordionBody({ children, ...restProps }) {
+Accordian.Body = function AccordionBody({ children, itemId, ...restProps }) {
   const { toggleShow } = useContext(ToggleContext);
-  return toggleShow ? <Body {...restProps}>{children}</Body> : null;
+  return toggleShow.id === itemId ? (
+    <Body {...restProps}>{children}</Body>
+  ) : null;
 };
 
 export default Accordian;

@@ -35713,8 +35713,8 @@ var _excluded = ["children"],
     _excluded2 = ["children"],
     _excluded3 = ["children"],
     _excluded4 = ["children"],
-    _excluded5 = ["children"],
-    _excluded6 = ["children"];
+    _excluded5 = ["children", "itemId"],
+    _excluded6 = ["children", "itemId"];
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -35751,14 +35751,9 @@ Accordian.Frame = function AccordianFrame(_ref2) {
   var children = _ref2.children,
       restprops = _objectWithoutProperties(_ref2, _excluded2);
 
-  return /*#__PURE__*/_react.default.createElement(_accordian.Frame, restprops, children);
-};
-
-Accordian.Item = function AccordianTitle(_ref3) {
-  var children = _ref3.children,
-      restprops = _objectWithoutProperties(_ref3, _excluded3);
-
-  var _useState = (0, _react.useState)(false),
+  var _useState = (0, _react.useState)({
+    id: -1
+  }),
       _useState2 = _slicedToArray(_useState, 2),
       toggleShow = _useState2[0],
       setToggleShow = _useState2[1];
@@ -35768,7 +35763,14 @@ Accordian.Item = function AccordianTitle(_ref3) {
       toggleShow: toggleShow,
       setToggleShow: setToggleShow
     }
-  }, /*#__PURE__*/_react.default.createElement(_accordian.Item, restprops, children));
+  }, /*#__PURE__*/_react.default.createElement(_accordian.Frame, restprops, children));
+};
+
+Accordian.Item = function AccordianTitle(_ref3) {
+  var children = _ref3.children,
+      restprops = _objectWithoutProperties(_ref3, _excluded3);
+
+  return /*#__PURE__*/_react.default.createElement(_accordian.Item, restprops, children);
 };
 
 Accordian.Title = function AccordianTtitle(_ref4) {
@@ -35780,17 +35782,32 @@ Accordian.Title = function AccordianTtitle(_ref4) {
 
 Accordian.Header = function AccordionHeader(_ref5) {
   var children = _ref5.children,
+      itemId = _ref5.itemId,
       restProps = _objectWithoutProperties(_ref5, _excluded5);
 
   var _useContext = (0, _react.useContext)(ToggleContext),
       toggleShow = _useContext.toggleShow,
       setToggleShow = _useContext.setToggleShow;
 
+  var handleItemBody = function handleItemBody() {
+    if (toggleShow.id !== itemId) {
+      var toggleObj = {
+        id: itemId
+      };
+      setToggleShow(toggleObj);
+    } else if (toggleShow.id === itemId) {
+      var _toggleObj = {
+        id: -1
+      };
+      setToggleShow(_toggleObj);
+    }
+  };
+
   return /*#__PURE__*/_react.default.createElement(_accordian.Header, _extends({
     onClick: function onClick() {
-      return setToggleShow(!toggleShow);
+      return handleItemBody();
     }
-  }, restProps), children, toggleShow ? /*#__PURE__*/_react.default.createElement("img", {
+  }, restProps), children, toggleShow.id === itemId.id ? /*#__PURE__*/_react.default.createElement("img", {
     src: "/images/icons/close-slim.png",
     alt: "Close"
   }) : /*#__PURE__*/_react.default.createElement("img", {
@@ -35801,12 +35818,13 @@ Accordian.Header = function AccordionHeader(_ref5) {
 
 Accordian.Body = function AccordionBody(_ref6) {
   var children = _ref6.children,
+      itemId = _ref6.itemId,
       restProps = _objectWithoutProperties(_ref6, _excluded6);
 
   var _useContext2 = (0, _react.useContext)(ToggleContext),
       toggleShow = _useContext2.toggleShow;
 
-  return toggleShow ? /*#__PURE__*/_react.default.createElement(_accordian.Body, restProps, children) : null;
+  return toggleShow.id === itemId ? /*#__PURE__*/_react.default.createElement(_accordian.Body, restProps, children) : null;
 };
 
 var _default = Accordian;
@@ -36114,7 +36132,11 @@ var FaqContainer = function FaqContainer() {
   return /*#__PURE__*/_react.default.createElement(_components.Accordian, null, /*#__PURE__*/_react.default.createElement(_components.Accordian.Title, null, "Frequently Asked Questions"), /*#__PURE__*/_react.default.createElement(_components.Accordian.Frame, null, _faqs.default.map(function (item) {
     return /*#__PURE__*/_react.default.createElement(_components.Accordian.Item, {
       key: item.id
-    }, /*#__PURE__*/_react.default.createElement(_components.Accordian.Header, null, item.header), /*#__PURE__*/_react.default.createElement(_components.Accordian.Body, null, item.body));
+    }, /*#__PURE__*/_react.default.createElement(_components.Accordian.Header, {
+      itemId: item.id
+    }, item.header), /*#__PURE__*/_react.default.createElement(_components.Accordian.Body, {
+      itemId: item.id
+    }, item.body));
   })));
 };
 
@@ -36317,7 +36339,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1192" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3479" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
