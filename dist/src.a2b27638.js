@@ -36058,7 +36058,100 @@ Footer.Break = function FooterBreak(_ref7) {
 
 var _default = Footer;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./styles/footer":"src/components/footer/styles/footer.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/footer":"src/components/footer/styles/footer.js"}],"src/components/opt-form/styles/opt-form.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Text = exports.Button = exports.Input = exports.Form = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n"])));
+
+exports.Container = Container;
+
+var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  width: 100%;\n  margin-top: 1em;\n\n  @media (min-width: 650px) {\n    display: flex;\n    flex-direction: row;\n    width: 40%;\n    justify-content: center;\n  }\n"])));
+
+exports.Form = Form;
+
+var Input = _styledComponents.default.input(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  height: 48px;\n  padding: 10px 10px;\n  margin: 0.5em 0;\n  border: 1px solid #8c8c8c;\n  border-radius: 2px;\n  font-size: 1rem;\n  width: 100%;\n  @media (min-width: 650px) {\n    width: 70%;\n    border: 0;\n  }\n"])));
+
+exports.Input = Input;
+
+var Button = _styledComponents.default.button(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  min-height: 48px;\n  width: auto;\n\n  color: white;\n  background: #e50914;\n\n  padding: 0 1em;\n  margin: 0.5em auto;\n\n  font-size: 1rem;\n  font-weight: 400;\n\n  border: 0;\n  border-radius: 2px;\n\n  cursor: pointer;\n\n  img {\n    filter: brightness(0) invert(1);\n    width: 10px;\n  }\n\n  @media (min-width: 650px) {\n    margin: 0.5em 0;\n    border-radius: 0;\n  }\n"])));
+
+exports.Button = Button;
+
+var Text = _styledComponents.default.p(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  font-size: 1.2rem;\n  text-align: center;\n"])));
+
+exports.Text = Text;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/opt-form/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _optForm = require("./styles/opt-form");
+
+var _excluded = ["children"],
+    _excluded2 = ["children"],
+    _excluded3 = ["children"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+function OptForm(_ref) {
+  var children = _ref.children,
+      restProps = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/_react.default.createElement(_optForm.Container, restProps, children);
+}
+
+OptForm.Form = function OptFormInput(_ref2) {
+  var restProps = Object.assign({}, _ref2);
+  return /*#__PURE__*/_react.default.createElement(_optForm.Form, restProps);
+};
+
+OptForm.Input = function OptFormInput(_ref3) {
+  var restProps = Object.assign({}, _ref3);
+  return /*#__PURE__*/_react.default.createElement(_optForm.Input, restProps);
+};
+
+OptForm.Button = function OptFormButton(_ref4) {
+  var children = _ref4.children,
+      restProps = _objectWithoutProperties(_ref4, _excluded2);
+
+  return /*#__PURE__*/_react.default.createElement(_optForm.Button, restProps, children, " ", /*#__PURE__*/_react.default.createElement("img", {
+    src: "/images/icons/chevron-right.png",
+    alt: "Try Now"
+  }));
+};
+
+OptForm.Text = function OptFormText(_ref5) {
+  var children = _ref5.children,
+      restProps = _objectWithoutProperties(_ref5, _excluded3);
+
+  return /*#__PURE__*/_react.default.createElement(_optForm.Text, restProps, children);
+};
+
+var _default = OptForm;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./styles/opt-form":"src/components/opt-form/styles/opt-form.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36082,6 +36175,12 @@ Object.defineProperty(exports, "Footer", {
     return _footer.default;
   }
 });
+Object.defineProperty(exports, "OptForm", {
+  enumerable: true,
+  get: function () {
+    return _optForm.default;
+  }
+});
 
 var _accordian = _interopRequireDefault(require("./accordian"));
 
@@ -36089,8 +36188,10 @@ var _jumbotron = _interopRequireDefault(require("./jumbotron"));
 
 var _footer = _interopRequireDefault(require("./footer"));
 
+var _optForm = _interopRequireDefault(require("./opt-form"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
+},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js","./opt-form":"src/components/opt-form/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
 module.exports = [{
   "id": 1,
   "header": "What is Netflix?",
@@ -36137,7 +36238,9 @@ var FaqContainer = function FaqContainer() {
     }, item.header), /*#__PURE__*/_react.default.createElement(_components.Accordian.Body, {
       itemId: item.id
     }, item.body));
-  })));
+  })), /*#__PURE__*/_react.default.createElement(_components.OptForm, null, /*#__PURE__*/_react.default.createElement(_components.OptForm.Text, null, "Ready to watch? Enter your email to create or restart your membership."), /*#__PURE__*/_react.default.createElement(_components.OptForm.Form, null, /*#__PURE__*/_react.default.createElement(_components.OptForm.Input, {
+    placeholder: "Email address"
+  }), /*#__PURE__*/_react.default.createElement(_components.OptForm.Button, null, /*#__PURE__*/_react.default.createElement("span", null, "Get Started")))));
 };
 
 exports.FaqContainer = FaqContainer;
