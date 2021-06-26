@@ -10,9 +10,8 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-  width: 100%;
+  width: ${(props) => (props.width ? props.width : 100)}%;
   margin-top: 1em;
-
   @media (min-width: 650px) {
     display: flex;
     flex-direction: row;
@@ -22,7 +21,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  height: 48px;
+  height: 40px;
   padding: 10px 10px;
   margin: 0.5em 0;
   border: 1px solid #8c8c8c;
@@ -38,28 +37,21 @@ export const Input = styled.input`
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  min-height: 48px;
+  min-height: 40px;
   width: auto;
-
   color: white;
   background: #e50914;
-
   padding: 0 1em;
   margin: 0.5em auto;
-
   font-size: 1rem;
   font-weight: 400;
-
   border: 0;
   border-radius: 2px;
-
   cursor: pointer;
-
   img {
     filter: brightness(0) invert(1);
     width: 10px;
   }
-
   @media (min-width: 650px) {
     margin: 0.5em 0;
     border-radius: 0;
