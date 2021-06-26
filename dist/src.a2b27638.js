@@ -36679,7 +36679,38 @@ function App() {
     path: ROUTES.HOME
   }, /*#__PURE__*/_react.default.createElement(_home.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./constants/routes":"src/constants/routes.js","./pages/home":"src/pages/home.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./constants/routes":"src/constants/routes.js","./pages/home":"src/pages/home.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FirebaseContext = void 0;
+
+var _react = require("react");
+
+var FirebaseContext = (0, _react.createContext)(null);
+exports.FirebaseContext = FirebaseContext;
+},{"react":"node_modules/react/index.js"}],"src/constants/firebase.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FIREBASE_API_ID = exports.FIREBASE_MESSAGING_ID = exports.FIREBASE_STORAGE_BUCKET = exports.FIREBASE_PROJECT_ID = exports.FIREBASE_AUTH_DOMAIN = exports.FIREBASE_API_KEY = void 0;
+var FIREBASE_API_KEY = "AIzaSyCRmw_vHWONPdPcUM9cEDhUcrcIauFJ1js";
+exports.FIREBASE_API_KEY = FIREBASE_API_KEY;
+var FIREBASE_AUTH_DOMAIN = "netflix-clone-5211d.firebaseapp.com";
+exports.FIREBASE_AUTH_DOMAIN = FIREBASE_AUTH_DOMAIN;
+var FIREBASE_PROJECT_ID = "netflix-clone-5211d";
+exports.FIREBASE_PROJECT_ID = FIREBASE_PROJECT_ID;
+var FIREBASE_STORAGE_BUCKET = "netflix-clone-5211d.appspot.com";
+exports.FIREBASE_STORAGE_BUCKET = FIREBASE_STORAGE_BUCKET;
+var FIREBASE_MESSAGING_ID = "853870448357";
+exports.FIREBASE_MESSAGING_ID = FIREBASE_MESSAGING_ID;
+var FIREBASE_API_ID = "1:853870448357:web:396441e719e96f288f4e0c";
+exports.FIREBASE_API_ID = FIREBASE_API_ID;
+},{}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -36690,10 +36721,32 @@ var _globalStyles = require("./global-styles");
 
 var _app = require("./app");
 
+var _firebase = require("./contexts/firebase");
+
+var FIREBASE_CONSTANTS = _interopRequireWildcard(require("./constants/firebase"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_globalStyles.GlobalStyles, null), /*#__PURE__*/_react.default.createElement(_app.App, null)), document.getElementById("root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./global-styles":"src/global-styles.js","./app":"src/app.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var firebaseConfig = {
+  apiKey: FIREBASE_CONSTANTS.FIREBASE_API_KEY,
+  authDomain: FIREBASE_CONSTANTS.FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_CONSTANTS.FIREBASE_PROJECT_ID,
+  storageBucket: FIREBASE_CONSTANTS.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: FIREBASE_CONSTANTS.FIREBASE_MESSAGING_ID,
+  appId: FIREBASE_CONSTANTS.FIREBASE_API_ID
+};
+var firebase = window.firebase.initializeApp(firebaseConfig);
+
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_firebase.FirebaseContext.Provider, {
+  value: {
+    firebase: window.firebase
+  }
+}, /*#__PURE__*/_react.default.createElement(_globalStyles.GlobalStyles, null), /*#__PURE__*/_react.default.createElement(_app.App, null))), document.getElementById("root"));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./global-styles":"src/global-styles.js","./app":"src/app.js","./contexts/firebase":"src/contexts/firebase.js","./constants/firebase":"src/constants/firebase.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -36721,7 +36774,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2902" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1452" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
