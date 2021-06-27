@@ -36344,7 +36344,159 @@ Feature.SubTitle = function (_ref3) {
 
 var _default = Feature;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./styles/feature":"src/components/feature/styles/feature.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/feature":"src/components/feature/styles/feature.js"}],"src/components/form/styles/form.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Submit = exports.Input = exports.Link = exports.TextSmall = exports.Text = exports.Title = exports.Base = exports.Error = exports.Container = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  padding: 4rem 4rem 3rem;\n  margin: 1rem auto 1rem;\n  width: 100%;\n  background-color: rgba(0, 0, 0, 0.75);\n  border-radius: 5px;\n  color: white;\n\n  @media (min-width: 1100px) {\n    width: 40%;\n  }\n"])));
+
+exports.Container = Container;
+
+var Error = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral([""])));
+
+exports.Error = Error;
+
+var Base = _styledComponents.default.form(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n"])));
+
+exports.Base = Base;
+
+var Title = _styledComponents.default.h1(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  font-size: 2rem;\n  font-weight: 700;\n  margin-bottom: 1.5rem;\n"])));
+
+exports.Title = Title;
+
+var Text = _styledComponents.default.h1(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral([""])));
+
+exports.Text = Text;
+
+var TextSmall = _styledComponents.default.h2(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral([""])));
+
+exports.TextSmall = TextSmall;
+var Link = (0, _styledComponents.default)(_reactRouterDom.Link)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  color: #fff;\n  text-decoration: none;\n\n  &:hover {\n    text-decoration: underline;\n  }\n"])));
+exports.Link = Link;
+
+var Input = _styledComponents.default.input(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  background: #333;\n  border-radius: 4px;\n  border: 0;\n  color: #fff;\n  height: 50px;\n  line-height: 50px;\n  padding: 0.4rem 1.25rem;\n  margin-bottom: 1.25rem;\n\n  &:last-of-type {\n    margin-bottom: 30px;\n  }\n"])));
+
+exports.Input = Input;
+
+var Submit = _styledComponents.default.button(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  background: #e50914;\n  border-radius: 4px;\n  font-size: 1rem;\n  font-weight: bold;\n  margin: 1.5rem 0 0.75rem;\n  padding: 1rem;\n  border: 0;\n  color: white;\n  cursor: pointer;\n\n  &:disabled {\n    opacity: 0.5;\n  }\n"])));
+
+exports.Submit = Submit;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/form/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _form = require("./styles/form");
+
+var _excluded = ["children"],
+    _excluded2 = ["children"],
+    _excluded3 = ["children"],
+    _excluded4 = ["children"],
+    _excluded5 = ["children"],
+    _excluded6 = ["children"],
+    _excluded7 = ["children"],
+    _excluded8 = ["children"],
+    _excluded9 = ["children"],
+    _excluded10 = ["children"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var Form = function Form(_ref) {
+  var children = _ref.children,
+      restProps = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Container, restProps, children);
+};
+
+Form.Error = function FormError(_ref2) {
+  var children = _ref2.children,
+      restProps = _objectWithoutProperties(_ref2, _excluded2);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Error, restProps, children);
+};
+
+Form.Base = function FormBase(_ref3) {
+  var children = _ref3.children,
+      restProps = _objectWithoutProperties(_ref3, _excluded3);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Base, restProps, children);
+};
+
+Form.Title = function FormTitle(_ref4) {
+  var children = _ref4.children,
+      restProps = _objectWithoutProperties(_ref4, _excluded4);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Title, restProps, children);
+};
+
+Form.Text = function FormText(_ref5) {
+  var children = _ref5.children,
+      restProps = _objectWithoutProperties(_ref5, _excluded5);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Text, restProps, children);
+};
+
+Form.TextSmall = function FormTextSmall(_ref6) {
+  var children = _ref6.children,
+      restProps = _objectWithoutProperties(_ref6, _excluded6);
+
+  return /*#__PURE__*/_react.default.createElement(_form.TextSmall, restProps, children);
+};
+
+Form.Error = function FormError(_ref7) {
+  var children = _ref7.children,
+      restProps = _objectWithoutProperties(_ref7, _excluded7);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Error, restProps, children);
+};
+
+Form.Link = function FormLink(_ref8) {
+  var children = _ref8.children,
+      restProps = _objectWithoutProperties(_ref8, _excluded8);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Link, restProps, children);
+};
+
+Form.Input = function FormInput(_ref9) {
+  var children = _ref9.children,
+      restProps = _objectWithoutProperties(_ref9, _excluded9);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Input, restProps, children);
+};
+
+Form.Submit = function (_ref10) {
+  var children = _ref10.children,
+      restProps = _objectWithoutProperties(_ref10, _excluded10);
+
+  return /*#__PURE__*/_react.default.createElement(_form.Submit, restProps, children);
+};
+
+var _default = Form;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./styles/form":"src/components/form/styles/form.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36386,6 +36538,12 @@ Object.defineProperty(exports, "Feature", {
     return _feature.default;
   }
 });
+Object.defineProperty(exports, "Form", {
+  enumerable: true,
+  get: function () {
+    return _form.default;
+  }
+});
 
 var _accordian = _interopRequireDefault(require("./accordian"));
 
@@ -36399,8 +36557,10 @@ var _header = _interopRequireDefault(require("./header"));
 
 var _feature = _interopRequireDefault(require("./feature"));
 
+var _form = _interopRequireDefault(require("./form"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js","./opt-form":"src/components/opt-form/index.js","./header":"src/components/header/index.js","./feature":"src/components/feature/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
+},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js","./opt-form":"src/components/opt-form/index.js","./header":"src/components/header/index.js","./feature":"src/components/feature/index.js","./form":"src/components/form/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
 module.exports = [{
   "id": 1,
   "header": "What is Netflix?",
@@ -36646,7 +36806,110 @@ var Home = function Home() {
 
 var _default = Home;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../containers/faqs":"src/containers/faqs.js","../containers/footer":"src/containers/footer.js","../containers/feature":"src/containers/feature.js","../containers/jumbotron":"src/containers/jumbotron.js","../containers/header":"src/containers/header.js","../components":"src/components/index.js"}],"src/app.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/faqs":"src/containers/faqs.js","../containers/footer":"src/containers/footer.js","../containers/feature":"src/containers/feature.js","../containers/jumbotron":"src/containers/jumbotron.js","../containers/header":"src/containers/header.js","../components":"src/components/index.js"}],"src/pages/signin.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Signin;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _components = require("../components");
+
+var _header = require("../containers/header");
+
+var _footer = require("../containers/footer");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function Signin() {
+  var _useState = (0, _react.useState)(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      error = _useState2[0],
+      setError = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      email = _useState4[0],
+      setEmail = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      password = _useState6[0],
+      setPassword = _useState6[1];
+
+  var isInvalid = password === "" | email === "";
+
+  var handleSubmit = function handleSubmit(event) {
+    event.preventDefault();
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.Form, null, /*#__PURE__*/_react.default.createElement(_components.Form.Title, null, "Sign In"), error && /*#__PURE__*/_react.default.createElement(_components.Form.Error, null, error), /*#__PURE__*/_react.default.createElement(_components.Form.Base, {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
+    placeholder: "Email address",
+    value: email,
+    onChange: function onChange(_ref) {
+      var target = _ref.target;
+      return setEmail(target.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
+    type: "password",
+    value: password,
+    autoComplete: "off",
+    placeholder: "Password",
+    onChange: function onChange(_ref2) {
+      var target = _ref2.target;
+      return setPassword(target.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, {
+    disabled: isInvalid,
+    type: "submit"
+  }, "Sign In"), /*#__PURE__*/_react.default.createElement(_components.Form.Text, null, "New to Netflix? ", /*#__PURE__*/_react.default.createElement(_components.Form.Link, {
+    to: "/signup"
+  }, "Sign up now."))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+}
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js"}],"src/pages/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Home", {
+  enumerable: true,
+  get: function () {
+    return _home.default;
+  }
+});
+Object.defineProperty(exports, "Signin", {
+  enumerable: true,
+  get: function () {
+    return _signin.default;
+  }
+});
+
+var _home = _interopRequireDefault(require("./home"));
+
+var _signin = _interopRequireDefault(require("./signin"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./home":"src/pages/home.js","./signin":"src/pages/signin.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36660,7 +36923,7 @@ var _reactRouterDom = require("react-router-dom");
 
 var ROUTES = _interopRequireWildcard(require("./constants/routes"));
 
-var _home = _interopRequireDefault(require("./pages/home"));
+var _pages = require("./pages");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -36671,15 +36934,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function App() {
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.BrowserRouter, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.SIGN_IN
-  }, /*#__PURE__*/_react.default.createElement("p", null, "I will be the sign in page")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react.default.createElement(_pages.Signin, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.SIGN_UP
   }, /*#__PURE__*/_react.default.createElement("p", null, "I will be the sign up page")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.BROWSE
   }, /*#__PURE__*/_react.default.createElement("p", null, "I will be the browse page")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.HOME
-  }, /*#__PURE__*/_react.default.createElement(_home.default, null))));
+  }, /*#__PURE__*/_react.default.createElement(_pages.Home, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./constants/routes":"src/constants/routes.js","./pages/home":"src/pages/home.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./constants/routes":"src/constants/routes.js","./pages":"src/pages/index.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36774,7 +37037,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4040" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
