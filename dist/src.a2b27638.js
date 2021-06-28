@@ -36854,7 +36854,7 @@ function Signin() {
       password = _useState6[0],
       setPassword = _useState6[1];
 
-  var isInvalid = password === "" | email === "";
+  var isInvalid = password === "" || email === "";
 
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
@@ -36885,7 +36885,100 @@ function Signin() {
     to: "/signup"
   }, "Sign up now."))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js"}],"src/pages/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js"}],"src/pages/signup.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Signup;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _components = require("../components");
+
+var _header = require("../containers/header");
+
+var _footer = require("../containers/footer");
+
+var ROUTES = _interopRequireWildcard(require("../constants/routes"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function Signup() {
+  var _useState = (0, _react.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      firstName = _useState2[0],
+      setFirstName = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(),
+      _useState4 = _slicedToArray(_useState3, 2),
+      email = _useState4[0],
+      setEmail = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      password = _useState6[0],
+      setPassword = _useState6[1];
+
+  var _useState7 = (0, _react.useState)(""),
+      _useState8 = _slicedToArray(_useState7, 2),
+      error = _useState8[0],
+      setError = _useState8[1];
+
+  var isInvalid = password === "" || email === "" || firstName === "" || error === "";
+
+  var handleSubmit = function handleSubmit(event) {
+    event.preventDefault();
+  };
+
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.Form, null, /*#__PURE__*/_react.default.createElement(_components.Form.Title, null, "Sign Up"), error && /*#__PURE__*/_react.default.createElement(_components.Form.Error, null, error), /*#__PURE__*/_react.default.createElement(_components.Form.Base, {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
+    placeholder: "First name",
+    value: firstName,
+    onChange: function onChange(_ref) {
+      var target = _ref.target;
+      return setEmail(target.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
+    placeholder: "Email address",
+    value: email,
+    onChange: function onChange(_ref2) {
+      var target = _ref2.target;
+      return setEmail(target.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
+    type: "password",
+    value: password,
+    autoComplete: "off",
+    placeholder: "Password",
+    onChange: function onChange(_ref3) {
+      var target = _ref3.target;
+      return setPassword(target.value);
+    }
+  }), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, {
+    disabled: isInvalid,
+    type: "submit"
+  }, "Sign In"), /*#__PURE__*/_react.default.createElement(_components.Form.Text, null, "Already a User? ", /*#__PURE__*/_react.default.createElement(_components.Form.Link, {
+    to: "/signin"
+  }, "Sign In"))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+}
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../constants/routes":"src/constants/routes.js"}],"src/pages/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36903,13 +36996,21 @@ Object.defineProperty(exports, "Signin", {
     return _signin.default;
   }
 });
+Object.defineProperty(exports, "Signup", {
+  enumerable: true,
+  get: function () {
+    return _signup.default;
+  }
+});
 
 var _home = _interopRequireDefault(require("./home"));
 
 var _signin = _interopRequireDefault(require("./signin"));
 
+var _signup = _interopRequireDefault(require("./signup"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./home":"src/pages/home.js","./signin":"src/pages/signin.js"}],"src/app.js":[function(require,module,exports) {
+},{"./home":"src/pages/home.js","./signin":"src/pages/signin.js","./signup":"src/pages/signup.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36936,7 +37037,7 @@ function App() {
     path: ROUTES.SIGN_IN
   }, /*#__PURE__*/_react.default.createElement(_pages.Signin, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.SIGN_UP
-  }, /*#__PURE__*/_react.default.createElement("p", null, "I will be the sign up page")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react.default.createElement(_pages.Signup, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.BROWSE
   }, /*#__PURE__*/_react.default.createElement("p", null, "I will be the browse page")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.HOME
@@ -37037,7 +37138,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4040" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2158" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

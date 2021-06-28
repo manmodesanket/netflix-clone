@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { Form } from "../components";
 import { HeaderContainer } from "../containers/header";
 import { FooterContainer } from "../containers/footer";
+import * as ROUTES from "../constants/routes";
 
-export default function Signin() {
-  const [error, setError] = useState(null);
-  const [email, setEmail] = useState("");
+export default function Signup() {
+  const [firstName, setFirstName] = useState();
+  const [email, setEmail] = useState();
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const isInvalid = password === "" || email === "";
+  const isInvalid =
+    password === "" || email === "" || firstName === "" || error === "";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,9 +21,14 @@ export default function Signin() {
     <>
       <HeaderContainer>
         <Form>
-          <Form.Title>Sign In</Form.Title>
+          <Form.Title>Sign Up</Form.Title>
           {error && <Form.Error>{error}</Form.Error>}
           <Form.Base onSubmit={handleSubmit}>
+            <Form.Input
+              placeholder="First name"
+              value={firstName}
+              onChange={({ target }) => setEmail(target.value)}
+            />
             <Form.Input
               placeholder="Email address"
               value={email}
@@ -37,7 +45,7 @@ export default function Signin() {
               Sign In
             </Form.Submit>
             <Form.Text>
-              New to Netflix? <Form.Link to="/signup">Sign up now.</Form.Link>
+              Already a User? <Form.Link to="/signin">Sign In</Form.Link>
             </Form.Text>
           </Form.Base>
         </Form>
