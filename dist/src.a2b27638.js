@@ -37005,7 +37005,19 @@ function Signin() {
     to: "/signup"
   }, "Sign up now."))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js"}],"src/pages/signup.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FirebaseContext = void 0;
+
+var _react = require("react");
+
+var FirebaseContext = (0, _react.createContext)(null);
+exports.FirebaseContext = FirebaseContext;
+},{"react":"node_modules/react/index.js"}],"src/pages/signup.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37015,6 +37027,8 @@ exports.default = Signup;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _components = require("../components");
 
 var _header = require("../containers/header");
@@ -37022,6 +37036,8 @@ var _header = require("../containers/header");
 var _footer = require("../containers/footer");
 
 var ROUTES = _interopRequireWildcard(require("../constants/routes"));
+
+var _firebase = require("../contexts/firebase");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -37040,12 +37056,17 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Signup() {
-  var _useState = (0, _react.useState)(),
+  var history = (0, _reactRouterDom.useHistory)();
+
+  var _useContext = (0, _react.useContext)(_firebase.FirebaseContext),
+      firebase = _useContext.firebase;
+
+  var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       firstName = _useState2[0],
       setFirstName = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(),
+  var _useState3 = (0, _react.useState)(""),
       _useState4 = _slicedToArray(_useState3, 2),
       email = _useState4[0],
       setEmail = _useState4[1];
@@ -37060,10 +37081,23 @@ function Signup() {
       error = _useState8[0],
       setError = _useState8[1];
 
-  var isInvalid = password === "" || email === "" || firstName === "" || error === "";
+  var isInvalid = password === "" || email === "" || firstName === "";
 
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function (result) {
+      return result.user.updateProfile({
+        displayName: firstName,
+        photoURL: Math.floor(Math.random() * 5) + 1
+      }).then(function () {
+        setEmail("");
+        setPassword("");
+        setError("");
+        history.push(ROUTES.BROWSE);
+      });
+    }).catch(function (error) {
+      return setError(error.message);
+    });
   };
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.Form, null, /*#__PURE__*/_react.default.createElement(_components.Form.Title, null, "Sign Up"), error && /*#__PURE__*/_react.default.createElement(_components.Form.Error, null, error), /*#__PURE__*/_react.default.createElement(_components.Form.Base, {
@@ -37073,7 +37107,7 @@ function Signup() {
     value: firstName,
     onChange: function onChange(_ref) {
       var target = _ref.target;
-      return setEmail(target.value);
+      return setFirstName(target.value);
     }
   }), /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
     placeholder: "Email address",
@@ -37094,23 +37128,11 @@ function Signup() {
   }), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, {
     disabled: isInvalid,
     type: "submit"
-  }, "Sign In"), /*#__PURE__*/_react.default.createElement(_components.Form.Text, null, "Already a User? ", /*#__PURE__*/_react.default.createElement(_components.Form.Link, {
+  }, "Sign Up"), /*#__PURE__*/_react.default.createElement(_components.Form.Text, null, "Already a User? ", /*#__PURE__*/_react.default.createElement(_components.Form.Link, {
     to: "/signin"
   }, "Sign In"))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../constants/routes":"src/constants/routes.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.FirebaseContext = void 0;
-
-var _react = require("react");
-
-var FirebaseContext = (0, _react.createContext)(null);
-exports.FirebaseContext = FirebaseContext;
-},{"react":"node_modules/react/index.js"}],"src/containers/profiles.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js"}],"src/containers/profiles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37342,7 +37364,7 @@ var firebaseConfig = {
   messagingSenderId: FIREBASE_CONSTANTS.FIREBASE_MESSAGING_ID,
   appId: FIREBASE_CONSTANTS.FIREBASE_API_ID
 };
-var firebase = window.firebase.initializeApp(firebaseConfig);
+var firebaseInit = window.firebase.initializeApp(firebaseConfig);
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_firebase.FirebaseContext.Provider, {
   value: {
@@ -37377,7 +37399,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2158" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3415" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

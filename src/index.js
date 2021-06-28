@@ -14,7 +14,7 @@ const firebaseConfig = {
   appId: FIREBASE_CONSTANTS.FIREBASE_API_ID,
 };
 
-const firebase = window.firebase.initializeApp(firebaseConfig);
+const firebaseInit = window.firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <>
