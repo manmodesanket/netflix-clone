@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { GlobalStyles } from "./global-styles";
 import { App } from "./app";
+import { AuthContext } from "./contexts/AuthContext";
 import { FirebaseContext } from "./contexts/firebase";
 import * as FIREBASE_CONSTANTS from "./constants/firebase";
 
@@ -14,13 +15,23 @@ const firebaseConfig = {
   appId: FIREBASE_CONSTANTS.FIREBASE_API_ID,
 };
 
-const firebaseInit = window.firebase.initializeApp(firebaseConfig);
+const AuthProvider = ({ children }) => {
+  const [user, setProfile] = useState({});
+  return (
+    <AuthContext.Provider value={{ user, setProfile }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
+const firebaseInit = window.firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
   <>
     <FirebaseContext.Provider value={{ firebase: window.firebase }}>
-      <GlobalStyles />
-      <App />
+      <AuthProvider>
+        <GlobalStyles />
+        <App />
+      </AuthProvider>
     </FirebaseContext.Provider>
   </>,
   document.getElementById("root")

@@ -1,8 +1,11 @@
 import React from "react";
 import { Header, Profiles } from "../components";
 import * as ROUTES from "../constants/routes";
+import { useAuth } from "../contexts/AuthContext";
 
-export function SelectProfileContainer({ user, setProfile }) {
+export function SelectProfileContainer() {
+  const { user, setProfile } = useAuth();
+
   return (
     <>
       <Header bg={false}>
@@ -22,7 +25,7 @@ export function SelectProfileContainer({ user, setProfile }) {
                   <Profiles.User
                     onClick={() =>
                       setProfile({
-                        displayName: user.displayName,
+                        ...user,
                         photoURL: user.photoURL,
                       })
                     }

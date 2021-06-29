@@ -36926,7 +36926,40 @@ var Home = function Home() {
 
 var _default = Home;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../containers/faqs":"src/containers/faqs.js","../containers/footer":"src/containers/footer.js","../containers/feature":"src/containers/feature.js","../containers/jumbotron":"src/containers/jumbotron.js","../containers/header":"src/containers/header.js","../components":"src/components/index.js"}],"src/pages/signin.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/faqs":"src/containers/faqs.js","../containers/footer":"src/containers/footer.js","../containers/feature":"src/containers/feature.js","../containers/jumbotron":"src/containers/jumbotron.js","../containers/header":"src/containers/header.js","../components":"src/components/index.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FirebaseContext = void 0;
+
+var _react = require("react");
+
+var FirebaseContext = (0, _react.createContext)(null);
+exports.FirebaseContext = FirebaseContext;
+},{"react":"node_modules/react/index.js"}],"src/contexts/AuthContext.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useAuth = useAuth;
+exports.AuthContext = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+var AuthContext = (0, _react.createContext)();
+exports.AuthContext = AuthContext;
+
+function useAuth() {
+  return (0, _react.useContext)(AuthContext);
+}
+},{"react":"node_modules/react/index.js"}],"src/pages/signin.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36936,11 +36969,19 @@ exports.default = Signin;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var ROUTES = _interopRequireWildcard(require("../constants/routes"));
+
+var _reactRouterDom = require("react-router-dom");
+
 var _components = require("../components");
 
 var _header = require("../containers/header");
 
 var _footer = require("../containers/footer");
+
+var _firebase = require("../contexts/firebase");
+
+var _AuthContext = require("../contexts/AuthContext");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -36959,6 +37000,14 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Signin() {
+  var _useAuth = (0, _AuthContext.useAuth)(),
+      setProfile = _useAuth.setProfile;
+
+  var history = (0, _reactRouterDom.useHistory)();
+
+  var _useContext = (0, _react.useContext)(_firebase.FirebaseContext),
+      firebase = _useContext.firebase;
+
   var _useState = (0, _react.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
       error = _useState2[0],
@@ -36978,6 +37027,18 @@ function Signin() {
 
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
+    firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+      setProfile({
+        displayName: firebase.auth().currentUser.displayName,
+        photoURL: Math.floor(Math.random() * 5) + 1
+      });
+      setEmail("");
+      setPassword("");
+      setError("");
+      history.push(ROUTES.BROWSE);
+    }).catch(function (error) {
+      return setError(error.message);
+    });
   };
 
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.Form, null, /*#__PURE__*/_react.default.createElement(_components.Form.Title, null, "Sign In"), error && /*#__PURE__*/_react.default.createElement(_components.Form.Error, null, error), /*#__PURE__*/_react.default.createElement(_components.Form.Base, {
@@ -37005,19 +37066,7 @@ function Signin() {
     to: "/signup"
   }, "Sign up now."))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.FirebaseContext = void 0;
-
-var _react = require("react");
-
-var FirebaseContext = (0, _react.createContext)(null);
-exports.FirebaseContext = FirebaseContext;
-},{"react":"node_modules/react/index.js"}],"src/pages/signup.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../constants/routes":"src/constants/routes.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../contexts/firebase":"src/contexts/firebase.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/pages/signup.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37039,6 +37088,8 @@ var ROUTES = _interopRequireWildcard(require("../constants/routes"));
 
 var _firebase = require("../contexts/firebase");
 
+var _AuthContext = require("../contexts/AuthContext");
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -37056,6 +37107,10 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Signup() {
+  var _useAuth = (0, _AuthContext.useAuth)(),
+      user = _useAuth.user,
+      setProfile = _useAuth.setProfile;
+
   var history = (0, _reactRouterDom.useHistory)();
 
   var _useContext = (0, _react.useContext)(_firebase.FirebaseContext),
@@ -37090,6 +37145,10 @@ function Signup() {
         displayName: firstName,
         photoURL: Math.floor(Math.random() * 5) + 1
       }).then(function () {
+        setProfile({
+          displayName: firstName,
+          photoURL: Math.floor(Math.random() * 5) + 1
+        });
         setEmail("");
         setPassword("");
         setError("");
@@ -37132,7 +37191,7 @@ function Signup() {
     to: "/signin"
   }, "Sign In"))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js"}],"src/containers/profiles.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/containers/profiles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37146,15 +37205,25 @@ var _components = require("../components");
 
 var ROUTES = _interopRequireWildcard(require("../constants/routes"));
 
+var _AuthContext = require("../contexts/AuthContext");
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function SelectProfileContainer(_ref) {
-  var user = _ref.user,
-      setProfile = _ref.setProfile;
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function SelectProfileContainer() {
+  var _useAuth = (0, _AuthContext.useAuth)(),
+      user = _useAuth.user,
+      setProfile = _useAuth.setProfile;
+
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_components.Header, {
     bg: false
   }, /*#__PURE__*/_react.default.createElement(_components.Header.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Header.Logo, {
@@ -37163,16 +37232,15 @@ function SelectProfileContainer(_ref) {
     alt: "Netflix"
   })), /*#__PURE__*/_react.default.createElement(_components.Profiles, null, /*#__PURE__*/_react.default.createElement(_components.Profiles.Title, null, "Who's watching?"), /*#__PURE__*/_react.default.createElement(_components.Profiles.List, null, /*#__PURE__*/_react.default.createElement(_components.Profiles.User, null, /*#__PURE__*/_react.default.createElement(_components.Profiles, null, /*#__PURE__*/_react.default.createElement(_components.Profiles.List, null, /*#__PURE__*/_react.default.createElement(_components.Profiles.User, {
     onClick: function onClick() {
-      return setProfile({
-        displayName: user.displayName,
+      return setProfile(_objectSpread(_objectSpread({}, user), {}, {
         photoURL: user.photoURL
-      });
+      }));
     }
   }, /*#__PURE__*/_react.default.createElement(_components.Profiles.Picture, {
     src: user.photoURL
   }), /*#__PURE__*/_react.default.createElement(_components.Profiles.Name, null, user.displayName)))))))));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js"}],"src/containers/browse.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/containers/browse.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37192,38 +37260,23 @@ var _profiles = require("./profiles");
 
 var _footer = require("./footer");
 
+var _AuthContext = require("../contexts/AuthContext");
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function BrowseContainer() {
-  var _useState = (0, _react.useState)({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      profile = _useState2[0],
-      setProfile = _useState2[1];
+  var _useAuth = (0, _AuthContext.useAuth)(),
+      user = _useAuth.user; // const loggedInuser = {
+  //   displayName: "Sanket",
+  //   photoURL: "1",
+  // };
 
-  var user = {
-    displayName: "Sanket",
-    photoURL: "1"
-  };
-  return profile.displayName ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("p", null, "Browse Container"), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null)) : /*#__PURE__*/_react.default.createElement(_profiles.SelectProfileContainer, {
-    user: user,
-    setProfile: setProfile
-  });
+
+  return user.displayName ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("p", null, "Browse Container"), /*#__PURE__*/_react.default.createElement(_profiles.SelectProfileContainer, null), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null)) : /*#__PURE__*/_react.default.createElement(_profiles.SelectProfileContainer, null);
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","./profiles":"src/containers/profiles.js","./footer":"src/containers/footer.js"}],"src/pages/browse.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","./profiles":"src/containers/profiles.js","./footer":"src/containers/footer.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/pages/browse.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37338,7 +37391,7 @@ exports.FIREBASE_API_ID = FIREBASE_API_ID;
 },{}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
@@ -37346,15 +37399,29 @@ var _globalStyles = require("./global-styles");
 
 var _app = require("./app");
 
+var _AuthContext = require("./contexts/AuthContext");
+
 var _firebase = require("./contexts/firebase");
 
 var FIREBASE_CONSTANTS = _interopRequireWildcard(require("./constants/firebase"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var firebaseConfig = {
   apiKey: FIREBASE_CONSTANTS.FIREBASE_API_KEY,
@@ -37364,14 +37431,31 @@ var firebaseConfig = {
   messagingSenderId: FIREBASE_CONSTANTS.FIREBASE_MESSAGING_ID,
   appId: FIREBASE_CONSTANTS.FIREBASE_API_ID
 };
+
+var AuthProvider = function AuthProvider(_ref) {
+  var children = _ref.children;
+
+  var _useState = (0, _react.useState)({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      user = _useState2[0],
+      setProfile = _useState2[1];
+
+  return /*#__PURE__*/_react.default.createElement(_AuthContext.AuthContext.Provider, {
+    value: {
+      user: user,
+      setProfile: setProfile
+    }
+  }, children);
+};
+
 var firebaseInit = window.firebase.initializeApp(firebaseConfig);
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_firebase.FirebaseContext.Provider, {
   value: {
     firebase: window.firebase
   }
-}, /*#__PURE__*/_react.default.createElement(_globalStyles.GlobalStyles, null), /*#__PURE__*/_react.default.createElement(_app.App, null))), document.getElementById("root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./global-styles":"src/global-styles.js","./app":"src/app.js","./contexts/firebase":"src/contexts/firebase.js","./constants/firebase":"src/constants/firebase.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+}, /*#__PURE__*/_react.default.createElement(AuthProvider, null, /*#__PURE__*/_react.default.createElement(_globalStyles.GlobalStyles, null), /*#__PURE__*/_react.default.createElement(_app.App, null)))), document.getElementById("root"));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./global-styles":"src/global-styles.js","./app":"src/app.js","./contexts/AuthContext":"src/contexts/AuthContext.js","./contexts/firebase":"src/contexts/firebase.js","./constants/firebase":"src/constants/firebase.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -37399,7 +37483,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3415" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

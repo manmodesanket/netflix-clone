@@ -1,12 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Form } from "../components";
 import { HeaderContainer } from "../containers/header";
 import { FooterContainer } from "../containers/footer";
 import * as ROUTES from "../constants/routes";
 import { FirebaseContext } from "../contexts/firebase";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Signup() {
+  const { user, setProfile } = useAuth();
+
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
   const [firstName, setFirstName] = useState("");
@@ -29,6 +32,10 @@ export default function Signup() {
             photoURL: Math.floor(Math.random() * 5) + 1,
           })
           .then(() => {
+            setProfile({
+              displayName: firstName,
+              photoURL: Math.floor(Math.random() * 5) + 1,
+            });
             setEmail("");
             setPassword("");
             setError("");

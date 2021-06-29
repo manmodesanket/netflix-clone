@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import * as ROUTES from "../constants/routes";
+import { useHistory } from "react-router-dom";
 import { Form } from "../components";
 import { HeaderContainer } from "../containers/header";
 import { FooterContainer } from "../containers/footer";
+import { FirebaseContext } from "../contexts/firebase";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Signin() {
+  const { setProfile } = useAuth();
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
   const [error, setError] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +19,20 @@ export default function Signin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        setProfile({
+          displayName: firebase.auth().currentUser.displayName,
+          photoURL: Math.floor(Math.random() * 5) + 1,
+        });
+        setEmail("");
+        setPassword("");
+        setError("");
+        history.push(ROUTES.BROWSE);
+      })
+      .catch((error) => setError(error.message));
   };
 
   return (

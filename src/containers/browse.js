@@ -4,21 +4,22 @@ import * as ROUTES from "../constants/routes";
 import { FirebaseContext } from "../contexts/firebase";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
+import { useAuth } from "../contexts/AuthContext";
 
 export function BrowseContainer() {
-  const [profile, setProfile] = useState({});
+  const { user } = useAuth();
+  // const loggedInuser = {
+  //   displayName: "Sanket",
+  //   photoURL: "1",
+  // };
 
-  const user = {
-    displayName: "Sanket",
-    photoURL: "1",
-  };
-
-  return profile.displayName ? (
+  return user.displayName ? (
     <>
       <p>Browse Container</p>
+      <SelectProfileContainer />
       <FooterContainer />
     </>
   ) : (
-    <SelectProfileContainer user={user} setProfile={setProfile} />
+    <SelectProfileContainer />
   );
 }
