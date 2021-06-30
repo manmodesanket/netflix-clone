@@ -36174,13 +36174,13 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Logo = exports.ButtonLink = exports.Link = exports.Container = exports.Background = void 0;
+exports.Profile = exports.Dropdown = exports.Picture = exports.SearchInput = exports.SearchIcon = exports.Search = exports.PlayButton = exports.FeatureCallOut = exports.Feature = exports.Text = exports.Group = exports.Logo = exports.ButtonLink = exports.Link = exports.Container = exports.Background = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36196,22 +36196,79 @@ var Background = _styledComponents.default.section(_templateObject || (_template
 
 exports.Background = Background;
 
-var Container = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  margin: 0 56px;\n  height: 64px;\n  padding: 18px 0;\n  justify-content: space-between;\n  align-items: center;\n\n  a {\n    display: flex;\n  }\n"])));
+var Container = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  margin: 0 2rem;\n  height: 4rem;\n  padding: 1rem 0;\n  justify-content: space-between;\n  align-items: center;\n\n  a {\n    display: flex;\n  }\n"])));
 
 exports.Container = Container;
 
-var Link = _styledComponents.default.p(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  color: #fff;\n  text-decoration: none;\n  margin-right: 30px;\n  font-weight: ", ";\n  cursor: pointer;\n\n  &:hover {\n    font-weight: bold;\n  }\n  &:last-of-type {\n    margin-right: 0;\n  }\n"])), function (_ref3) {
+var Link = _styledComponents.default.p(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  color: #fff;\n  text-decoration: none;\n  margin-right: 1.5rem;\n  font-weight: ", ";\n  cursor: pointer;\n\n  &:hover {\n    font-weight: bold;\n  }\n  &:last-of-type {\n    margin-right: 0;\n  }\n"])), function (_ref3) {
   var active = _ref3.active;
   return active === "true" ? "700" : "normal";
 });
 
 exports.Link = Link;
-var ButtonLink = (0, _styledComponents.default)(_reactRouterDom.Link)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  display: block;\n  background-color: #e50914;\n  width: 84px;\n  height: fit-content;\n  color: white;\n  border: 0;\n  font-size: 15px;\n  border-radius: 3px;\n  padding: 8px 17px;\n  cursor: pointer;\n  text-decoration: none;\n  box-sizing: border-box;\n\n  &:hover {\n    background: #f40612;\n  }\n"])));
+var ButtonLink = (0, _styledComponents.default)(_reactRouterDom.Link)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  display: block;\n  background-color: #e50914;\n  width: 5.25rem;\n  height: fit-content;\n  color: white;\n  border: 0;\n  font-size: 1rem;\n  border-radius: 3px;\n  padding: 0.5rem 1rem;\n  cursor: pointer;\n  text-decoration: none;\n  box-sizing: border-box;\n\n  &:hover {\n    background: #f40612;\n  }\n"])));
 exports.ButtonLink = ButtonLink;
 
-var Logo = _styledComponents.default.img(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  height: 32px;\n  width: 108px;\n  margin-right: 40px;\n\n  @media (min-width: 650px) {\n    height: 45px;\n    width: 167px;\n  }\n"])));
+var Logo = _styledComponents.default.img(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  height: 2rem;\n  width: 6.75rem;\n  margin-right: 40px;\n\n  @media (min-width: 650px) {\n    height: 45px;\n    width: 167px;\n  }\n"])));
 
 exports.Logo = Logo;
+
+var Group = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n"])));
+
+exports.Group = Group;
+
+var Text = _styledComponents.default.p(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  color: white;\n  font-size: 22px;\n  line-height: normal;\n  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);\n"])));
+
+exports.Text = Text;
+var Feature = (0, _styledComponents.default)(Container)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  padding: 150px 0 500px 0;\n  flex-direction: column;\n  align-items: normal;\n  width: 50%;\n\n  @media (max-width: 1100px) {\n    display: none;\n  }\n"])));
+exports.Feature = Feature;
+
+var FeatureCallOut = _styledComponents.default.h2(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  color: white;\n  font-size: 50px;\n  line-height: normal;\n  font-weight: bold;\n  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);\n  margin: 0;\n"])));
+
+exports.FeatureCallOut = FeatureCallOut;
+
+var PlayButton = _styledComponents.default.button(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    box-shadow: 0 0.6vw 1vw -0.4vw rgba(0, 0, 0, 0.35);\n    background-color: #e6e6e6;\n    color: #000;\n    border-width: 0;\n    padding: 10px 20px;\n    border-radius: 5px;\n    max-width: 130px;\n    font-weight: bold;\n    font-size: 20px;\n    margin-top: 10px;\n    cursor: pointer;\n    transition: background-color: 0.5s ease;\n    \n    &:hover {\n        background: #ff1e1e;\n        color: white;\n    }\n"])));
+
+exports.PlayButton = PlayButton;
+
+var Search = _styledComponents.default.div(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n\n  @media (max-width: 700px) {\n    display: none;\n  }\n"])));
+
+exports.Search = Search;
+
+var SearchIcon = _styledComponents.default.button(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  background-color: transparent;\n  border: 0;\n\n  img {\n    filter: brightness(0) invert(1);\n    width: 16px;\n  }\n"])));
+
+exports.SearchIcon = SearchIcon;
+
+var SearchInput = _styledComponents.default.input(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  background-color: #44444459;\n  color: white;\n  border: 1px solid white;\n  transition: width 0.5s;\n  height: 30px;\n  font-size: 14px;\n  margin-left: ", ";\n  padding: ", ";\n  opacity: ", ";\n  width: ", ";\n"])), function (_ref4) {
+  var active = _ref4.active;
+  return active === true ? "10px" : "0";
+}, function (_ref5) {
+  var active = _ref5.active;
+  return active === true ? "0 10px" : "0";
+}, function (_ref6) {
+  var active = _ref6.active;
+  return active === true ? "1" : "0";
+}, function (_ref7) {
+  var active = _ref7.active;
+  return active === true ? "200px" : "0px";
+});
+
+exports.SearchInput = SearchInput;
+
+var Picture = _styledComponents.default.button(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n  background: url(", ");\n  background-size: contain;\n  border: 0;\n  width: 32px;\n  height: 32px;\n  cursor: pointer;\n"])), function (_ref8) {
+  var src = _ref8.src;
+  return src;
+});
+
+exports.Picture = Picture;
+
+var Dropdown = _styledComponents.default.div(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n  display: none;\n  position: absolute;\n  background-color: black;\n  padding: 10px;\n  width: 100px;\n  top: 32px;\n  right: 10px;\n\n  ", ":last-of-type ", " {\n    cursor: pointer;\n  }\n\n  ", " {\n    margin-bottom: 10px;\n\n    &:last-of-type {\n      margin-bottom: 0;\n    }\n\n    ", ", ", " {\n      cursor: default;\n    }\n  }\n\n  button {\n    margin-right: 10px;\n  }\n\n  p {\n    font-size: 12px;\n    margin-bottom: 0;\n    margin-top: 0;\n  }\n"])), Group, Link, Group, Link, Picture);
+
+exports.Dropdown = Dropdown;
+
+var Profile = _styledComponents.default.div(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  margin-left: 20px;\n  position: relative;\n\n  button {\n    cursor: pointer;\n  }\n\n  &:hover > ", " {\n    display: flex;\n    flex-direction: column;\n  }\n"])), Dropdown);
+
+exports.Profile = Profile;
 },{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/header/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -36220,7 +36277,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
@@ -36228,10 +36285,36 @@ var _header = require("./styles/header");
 
 var _excluded = ["bg", "children"],
     _excluded2 = ["children"],
-    _excluded3 = ["to", "children"],
-    _excluded4 = ["children"];
+    _excluded3 = ["children"],
+    _excluded4 = ["searchTerm", "setSearchTerm"],
+    _excluded5 = ["to", "children"],
+    _excluded6 = ["children"],
+    _excluded7 = ["children"],
+    _excluded8 = ["children"],
+    _excluded9 = ["children"],
+    _excluded10 = ["children"],
+    _excluded11 = ["children"],
+    _excluded12 = ["children"],
+    _excluded13 = ["src"],
+    _excluded14 = ["children"];
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
@@ -36253,21 +36336,114 @@ Header.Frame = function (_ref2) {
   return /*#__PURE__*/_react.default.createElement(_header.Container, restprops, children);
 };
 
-Header.Logo = function (_ref3) {
-  var to = _ref3.to,
-      children = _ref3.children,
-      restprops = _objectWithoutProperties(_ref3, _excluded3);
+Header.Group = function HeaderGroup(_ref3) {
+  var children = _ref3.children,
+      restProps = _objectWithoutProperties(_ref3, _excluded3);
+
+  return /*#__PURE__*/_react.default.createElement(_header.Group, restProps, children);
+};
+
+Header.Search = function HeaderSearch(_ref4) {
+  var searchTerm = _ref4.searchTerm,
+      setSearchTerm = _ref4.setSearchTerm,
+      restProps = _objectWithoutProperties(_ref4, _excluded4);
+
+  var _useState = (0, _react.useState)(),
+      _useState2 = _slicedToArray(_useState, 2),
+      searchActive = _useState2[0],
+      setSearchActive = _useState2[1];
+
+  return /*#__PURE__*/_react.default.createElement(_header.Search, restProps, /*#__PURE__*/_react.default.createElement(_header.SearchIcon, {
+    onClick: function onClick() {
+      return setSearchActive(!searchActive);
+    }
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "/images/icons/search.png",
+    alt: "Search"
+  })), /*#__PURE__*/_react.default.createElement(_header.SearchInput, {
+    value: searchTerm,
+    onChange: function onChange(_ref5) {
+      var target = _ref5.target;
+      return setSearchTerm(target.value);
+    },
+    placeholder: "Search files and series",
+    active: searchActive
+  }));
+};
+
+Header.Logo = function (_ref6) {
+  var to = _ref6.to,
+      children = _ref6.children,
+      restprops = _objectWithoutProperties(_ref6, _excluded5);
 
   return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: to
   }, /*#__PURE__*/_react.default.createElement(_header.Logo, restprops));
 };
 
-Header.ButtonLink = function (_ref4) {
-  var children = _ref4.children,
-      restProps = _objectWithoutProperties(_ref4, _excluded4);
+Header.Text = function HeaderText(_ref7) {
+  var children = _ref7.children,
+      restProps = _objectWithoutProperties(_ref7, _excluded6);
+
+  return /*#__PURE__*/_react.default.createElement(_header.Text, restProps, children);
+};
+
+Header.Link = function HeaderLink(_ref8) {
+  var children = _ref8.children,
+      restProps = _objectWithoutProperties(_ref8, _excluded7);
+
+  return /*#__PURE__*/_react.default.createElement(_header.Link, restProps, children);
+};
+
+Header.ButtonLink = function (_ref9) {
+  var children = _ref9.children,
+      restProps = _objectWithoutProperties(_ref9, _excluded8);
 
   return /*#__PURE__*/_react.default.createElement(_header.ButtonLink, restProps, children);
+};
+
+Header.Feature = function HeaderFeature(_ref10) {
+  var children = _ref10.children,
+      restProps = _objectWithoutProperties(_ref10, _excluded9);
+
+  return /*#__PURE__*/_react.default.createElement(_header.Feature, restProps, children);
+};
+
+Header.FeatureCallOut = function HeaderFeatureCallOut(_ref11) {
+  var children = _ref11.children,
+      restProps = _objectWithoutProperties(_ref11, _excluded10);
+
+  return /*#__PURE__*/_react.default.createElement(_header.FeatureCallOut, restProps, children);
+};
+
+Header.PlayButton = function HeaderPlayButton(_ref12) {
+  var children = _ref12.children,
+      restProps = _objectWithoutProperties(_ref12, _excluded11);
+
+  return /*#__PURE__*/_react.default.createElement(_header.PlayButton, restProps, children);
+};
+
+Header.Profile = function HeaderProfile(_ref13) {
+  var children = _ref13.children,
+      restProps = _objectWithoutProperties(_ref13, _excluded12);
+
+  return /*#__PURE__*/_react.default.createElement(_header.Profile, restProps, children);
+};
+
+Header.Picture = function HeaderPicture(_ref14) {
+  var src = _ref14.src,
+      restProps = _objectWithoutProperties(_ref14, _excluded13);
+
+  return /*#__PURE__*/_react.default.createElement(_header.Picture, _extends({}, restProps, {
+    src: "/images/users/".concat(src, ".png")
+  }));
+};
+
+Header.Dropdown = function HeaderDRopdown(_ref15) {
+  var children = _ref15.children,
+      restProps = _objectWithoutProperties(_ref15, _excluded14);
+
+  return /*#__PURE__*/_react.default.createElement(_header.Dropdown, restProps, children);
 };
 
 var _default = Header;
@@ -36859,7 +37035,66 @@ var JumbotronContainer = function JumbotronContainer() {
 };
 
 exports.JumbotronContainer = JumbotronContainer;
-},{"react":"node_modules/react/index.js","../components/":"src/components/index.js","../fixtures/jumbo.json":"src/fixtures/jumbo.json"}],"src/containers/header.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components/":"src/components/index.js","../fixtures/jumbo.json":"src/fixtures/jumbo.json"}],"src/contexts/firebase.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useFirebase = useFirebase;
+exports.default = exports.FirebaseContext = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var FirebaseContext = (0, _react.createContext)();
+exports.FirebaseContext = FirebaseContext;
+
+function useFirebase() {
+  return (0, _react.useContext)(FirebaseContext);
+}
+
+var FirebaseProvider = function FirebaseProvider(_ref) {
+  var children = _ref.children;
+
+  var _useState = (0, _react.useState)({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      user = _useState2[0],
+      setProfile = _useState2[1];
+
+  (0, _react.useEffect)(function () {
+    firebase.auth().onAuthStateChanged(function (user) {
+      setProfile(user);
+    });
+    return function () {};
+  }, []);
+  return /*#__PURE__*/_react.default.createElement(FirebaseContext.Provider, {
+    value: {
+      user: user,
+      setProfile: setProfile,
+      firebase: window.firebase
+    }
+  }, children);
+};
+
+var _default = FirebaseProvider;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"src/containers/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36873,6 +37108,8 @@ var _components = require("../components");
 
 var ROUTES = _interopRequireWildcard(require("../constants/routes"));
 
+var _firebase = require("../contexts/firebase");
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -36881,15 +37118,21 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function HeaderContainer(_ref) {
   var children = _ref.children;
+
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      user = _useFirebase.user,
+      firebase = _useFirebase.firebase;
+
+  var currentUser = firebase.auth().currentUser;
   return /*#__PURE__*/_react.default.createElement(_components.Header, null, /*#__PURE__*/_react.default.createElement(_components.Header.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Header.Logo, {
     to: ROUTES.HOME,
     src: "/images/misc/logo.svg",
     alt: "Netflix"
-  }), /*#__PURE__*/_react.default.createElement(_components.Header.ButtonLink, {
+  }), user !== null && user !== void 0 && user.displayname ? null : /*#__PURE__*/_react.default.createElement(_components.Header.ButtonLink, {
     to: ROUTES.SIGN_IN
   }, "Sign In")), children);
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js"}],"src/pages/home.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js"}],"src/pages/home.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36911,55 +37154,41 @@ var _header = require("../containers/header");
 
 var _components = require("../components");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _reactRouterDom = require("react-router-dom");
 
-var Home = function Home() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.OptForm, null, /*#__PURE__*/_react.default.createElement(_feature.FeatureContainer, {
-    title: "Unlimited movies, TV shows and more.",
-    subtitle: "Watch anywhere. Cancel anytime."
-  }), /*#__PURE__*/_react.default.createElement(_components.OptForm.Text, null, "Ready to watch? Enter your email to create or restart your membership."), /*#__PURE__*/_react.default.createElement(_components.OptForm.Form, {
-    width: 90
-  }, /*#__PURE__*/_react.default.createElement(_components.OptForm.Input, {
-    placeholder: "Email address"
-  }), /*#__PURE__*/_react.default.createElement(_components.OptForm.Button, null, /*#__PURE__*/_react.default.createElement("span", null, "Get Started"))))), /*#__PURE__*/_react.default.createElement(_jumbotron.JumbotronContainer, null), /*#__PURE__*/_react.default.createElement(_faqs.FaqContainer, null), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
-};
+var _firebase = require("../contexts/firebase");
 
-var _default = Home;
-exports.default = _default;
-},{"react":"node_modules/react/index.js","../containers/faqs":"src/containers/faqs.js","../containers/footer":"src/containers/footer.js","../containers/feature":"src/containers/feature.js","../containers/jumbotron":"src/containers/jumbotron.js","../containers/header":"src/containers/header.js","../components":"src/components/index.js"}],"src/contexts/firebase.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.FirebaseContext = void 0;
-
-var _react = require("react");
-
-var FirebaseContext = (0, _react.createContext)(null);
-exports.FirebaseContext = FirebaseContext;
-},{"react":"node_modules/react/index.js"}],"src/contexts/AuthContext.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.useAuth = useAuth;
-exports.AuthContext = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
+var ROUTES = _interopRequireWildcard(require("../constants/routes"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-var AuthContext = (0, _react.createContext)();
-exports.AuthContext = AuthContext;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function useAuth() {
-  return (0, _react.useContext)(AuthContext);
-}
-},{"react":"node_modules/react/index.js"}],"src/pages/signin.js":[function(require,module,exports) {
+var Home = function Home() {
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      user = _useFirebase.user;
+
+  if (user !== null && user !== void 0 && user.displayname) {
+    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
+      to: ROUTES.BROWSE
+    });
+  } else {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.OptForm, null, /*#__PURE__*/_react.default.createElement(_feature.FeatureContainer, {
+      title: "Unlimited movies, TV shows and more.",
+      subtitle: "Watch anywhere. Cancel anytime."
+    }), /*#__PURE__*/_react.default.createElement(_components.OptForm.Text, null, "Ready to watch? Enter your email to create or restart your membership."), /*#__PURE__*/_react.default.createElement(_components.OptForm.Form, {
+      width: 90
+    }, /*#__PURE__*/_react.default.createElement(_components.OptForm.Input, {
+      placeholder: "Email address"
+    }), /*#__PURE__*/_react.default.createElement(_components.OptForm.Button, null, /*#__PURE__*/_react.default.createElement("span", null, "Get Started"))))), /*#__PURE__*/_react.default.createElement(_jumbotron.JumbotronContainer, null), /*#__PURE__*/_react.default.createElement(_faqs.FaqContainer, null), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+  }
+};
+
+var _default = Home;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../containers/faqs":"src/containers/faqs.js","../containers/footer":"src/containers/footer.js","../containers/feature":"src/containers/feature.js","../containers/jumbotron":"src/containers/jumbotron.js","../containers/header":"src/containers/header.js","../components":"src/components/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../contexts/firebase":"src/contexts/firebase.js","../constants/routes":"src/constants/routes.js"}],"src/pages/signin.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36981,8 +37210,6 @@ var _footer = require("../containers/footer");
 
 var _firebase = require("../contexts/firebase");
 
-var _AuthContext = require("../contexts/AuthContext");
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -37000,13 +37227,13 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Signin() {
-  var _useAuth = (0, _AuthContext.useAuth)(),
-      setProfile = _useAuth.setProfile;
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      user = _useFirebase.user,
+      setProfile = _useFirebase.setProfile,
+      firebase = _useFirebase.firebase;
 
+  var currentUser = firebase.auth().currentUser;
   var history = (0, _reactRouterDom.useHistory)();
-
-  var _useContext = (0, _react.useContext)(_firebase.FirebaseContext),
-      firebase = _useContext.firebase;
 
   var _useState = (0, _react.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
@@ -37027,46 +37254,48 @@ function Signin() {
 
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
+    setEmail("");
+    setPassword("");
     firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
-      setProfile({
-        displayName: firebase.auth().currentUser.displayName,
-        photoURL: Math.floor(Math.random() * 5) + 1
-      });
-      setEmail("");
-      setPassword("");
-      setError("");
+      setProfile(firebase.auth().currentUser);
       history.push(ROUTES.BROWSE);
     }).catch(function (error) {
       return setError(error.message);
     });
   };
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.Form, null, /*#__PURE__*/_react.default.createElement(_components.Form.Title, null, "Sign In"), error && /*#__PURE__*/_react.default.createElement(_components.Form.Error, null, error), /*#__PURE__*/_react.default.createElement(_components.Form.Base, {
-    onSubmit: handleSubmit
-  }, /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
-    placeholder: "Email address",
-    value: email,
-    onChange: function onChange(_ref) {
-      var target = _ref.target;
-      return setEmail(target.value);
-    }
-  }), /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
-    type: "password",
-    value: password,
-    autoComplete: "off",
-    placeholder: "Password",
-    onChange: function onChange(_ref2) {
-      var target = _ref2.target;
-      return setPassword(target.value);
-    }
-  }), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, {
-    disabled: isInvalid,
-    type: "submit"
-  }, "Sign In"), /*#__PURE__*/_react.default.createElement(_components.Form.Text, null, "New to Netflix? ", /*#__PURE__*/_react.default.createElement(_components.Form.Link, {
-    to: "/signup"
-  }, "Sign up now."))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+  if (currentUser) {
+    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
+      to: ROUTES.BROWSE
+    });
+  } else {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_header.HeaderContainer, null, /*#__PURE__*/_react.default.createElement(_components.Form, null, /*#__PURE__*/_react.default.createElement(_components.Form.Title, null, "Sign In"), error && /*#__PURE__*/_react.default.createElement(_components.Form.Error, null, error), /*#__PURE__*/_react.default.createElement(_components.Form.Base, {
+      onSubmit: handleSubmit
+    }, /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
+      placeholder: "Email address",
+      value: email,
+      onChange: function onChange(_ref) {
+        var target = _ref.target;
+        return setEmail(target.value);
+      }
+    }), /*#__PURE__*/_react.default.createElement(_components.Form.Input, {
+      type: "password",
+      value: password,
+      autoComplete: "off",
+      placeholder: "Password",
+      onChange: function onChange(_ref2) {
+        var target = _ref2.target;
+        return setPassword(target.value);
+      }
+    }), /*#__PURE__*/_react.default.createElement(_components.Form.Submit, {
+      disabled: isInvalid,
+      type: "submit"
+    }, "Sign In"), /*#__PURE__*/_react.default.createElement(_components.Form.Text, null, "New to Netflix? ", /*#__PURE__*/_react.default.createElement(_components.Form.Link, {
+      to: "/signup"
+    }, "Sign up now."))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+  }
 }
-},{"react":"node_modules/react/index.js","../constants/routes":"src/constants/routes.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../contexts/firebase":"src/contexts/firebase.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/pages/signup.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../constants/routes":"src/constants/routes.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../contexts/firebase":"src/contexts/firebase.js"}],"src/pages/signup.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37088,8 +37317,6 @@ var ROUTES = _interopRequireWildcard(require("../constants/routes"));
 
 var _firebase = require("../contexts/firebase");
 
-var _AuthContext = require("../contexts/AuthContext");
-
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -37107,14 +37334,12 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Signup() {
-  var _useAuth = (0, _AuthContext.useAuth)(),
-      user = _useAuth.user,
-      setProfile = _useAuth.setProfile;
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      user = _useFirebase.user,
+      setProfile = _useFirebase.setProfile,
+      firebase = _useFirebase.firebase;
 
   var history = (0, _reactRouterDom.useHistory)();
-
-  var _useContext = (0, _react.useContext)(_firebase.FirebaseContext),
-      firebase = _useContext.firebase;
 
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -37149,6 +37374,9 @@ function Signup() {
           displayName: firstName,
           photoURL: Math.floor(Math.random() * 5) + 1
         });
+        localStorage.setItem("auth", JSON.stringify({
+          loggedIn: true
+        }));
         setEmail("");
         setPassword("");
         setError("");
@@ -37191,7 +37419,7 @@ function Signup() {
     to: "/signin"
   }, "Sign In"))))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/containers/profiles.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../components":"src/components/index.js","../containers/header":"src/containers/header.js","../containers/footer":"src/containers/footer.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js"}],"src/containers/profiles.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37204,8 +37432,6 @@ var _react = _interopRequireDefault(require("react"));
 var _components = require("../components");
 
 var ROUTES = _interopRequireWildcard(require("../constants/routes"));
-
-var _AuthContext = require("../contexts/AuthContext");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -37220,7 +37446,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function SelectProfileContainer() {
-  var _useAuth = (0, _AuthContext.useAuth)(),
+  var _useAuth = useAuth(),
       user = _useAuth.user,
       setProfile = _useAuth.setProfile;
 
@@ -37240,7 +37466,7 @@ function SelectProfileContainer() {
     src: user.photoURL
   }), /*#__PURE__*/_react.default.createElement(_components.Profiles.Name, null, user.displayName)))))))));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/containers/browse.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js"}],"src/containers/browse.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37260,23 +37486,87 @@ var _profiles = require("./profiles");
 
 var _footer = require("./footer");
 
-var _AuthContext = require("../contexts/AuthContext");
+var _reactRouterDom = require("react-router-dom");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function BrowseContainer() {
-  var _useAuth = (0, _AuthContext.useAuth)(),
-      user = _useAuth.user; // const loggedInuser = {
-  //   displayName: "Sanket",
-  //   photoURL: "1",
-  // };
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      user = _useFirebase.user,
+      setProfile = _useFirebase.setProfile,
+      firebase = _useFirebase.firebase;
 
+  var currentUser = firebase.auth().currentUser;
 
-  return user.displayName ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("p", null, "Browse Container"), /*#__PURE__*/_react.default.createElement(_profiles.SelectProfileContainer, null), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null)) : /*#__PURE__*/_react.default.createElement(_profiles.SelectProfileContainer, null);
+  var _useState = (0, _react.useState)("series"),
+      _useState2 = _slicedToArray(_useState, 2),
+      category = _useState2[0],
+      setCategory = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loading = _useState4[0],
+      setLoading = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      searchTerm = _useState6[0],
+      setSearchTerm = _useState6[1];
+
+  var handleSignout = function handleSignout() {
+    firebase.auth().signOut();
+    setProfile(null);
+  };
+
+  if (user) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_components.Header, {
+      src: "joker1",
+      dontShowOnSmallViewPort: true
+    }, /*#__PURE__*/_react.default.createElement(_components.Header.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Logo, {
+      to: ROUTES.HOME,
+      src: "/images/misc/logo.svg",
+      alt: "Netflix"
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
+      active: category === "series" ? "true" : "false",
+      onClick: function onClick() {
+        return setCategory("series");
+      }
+    }, "Series"), /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
+      active: category === "films" ? "true" : "false",
+      onClick: function onClick() {
+        return setCategory("films");
+      }
+    }, "Films")), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Search, {
+      searchTerm: searchTerm,
+      setSearchTerm: setSearchTerm
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Profile, null, /*#__PURE__*/_react.default.createElement(_components.Header.Picture, {
+      src: user.photoURL
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Dropdown, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Picture, {
+      src: user.photoURL
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, null, user.displayName)), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
+      onClick: handleSignout
+    }, "Sign out")))))), /*#__PURE__*/_react.default.createElement(_components.Header.Feature, null, /*#__PURE__*/_react.default.createElement(_components.Header.FeatureCallOut, null, "Watch Joker Now"), /*#__PURE__*/_react.default.createElement(_components.Header.Text, null, "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him."), /*#__PURE__*/_react.default.createElement(_components.Header.PlayButton, null, "Play"))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+  } else {
+    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
+      to: ROUTES.HOME
+    });
+  }
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","./profiles":"src/containers/profiles.js","./footer":"src/containers/footer.js","../contexts/AuthContext":"src/contexts/AuthContext.js"}],"src/pages/browse.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","./profiles":"src/containers/profiles.js","./footer":"src/containers/footer.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/pages/browse.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37336,7 +37626,56 @@ var _signup = _interopRequireDefault(require("./signup"));
 var _browse = _interopRequireDefault(require("./browse"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./home":"src/pages/home.js","./signin":"src/pages/signin.js","./signup":"src/pages/signup.js","./browse":"src/pages/browse.js"}],"src/app.js":[function(require,module,exports) {
+},{"./home":"src/pages/home.js","./signin":"src/pages/signin.js","./signup":"src/pages/signup.js","./browse":"src/pages/browse.js"}],"src/components/privateroute/privateroute.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var ROUTES = _interopRequireWildcard(require("../../constants/routes"));
+
+var _firebase = require("../../contexts/firebase");
+
+var _excluded = ["component"];
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var PrivateRoute = function PrivateRoute(_ref) {
+  var RouteComponent = _ref.component,
+      rest = _objectWithoutProperties(_ref, _excluded);
+
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      firebase = _useFirebase.firebase;
+
+  var currentUser = firebase.auth().currentUser;
+  return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, _extends({}, rest, {
+    render: function render(routeProps) {
+      return !!currentUser ? /*#__PURE__*/_react.default.createElement(RouteComponent, routeProps) : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
+        to: ROUTES.SIGN_IN
+      });
+    }
+  }));
+};
+
+var _default = PrivateRoute;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../../constants/routes":"src/constants/routes.js","../../contexts/firebase":"src/contexts/firebase.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37352,6 +37691,8 @@ var ROUTES = _interopRequireWildcard(require("./constants/routes"));
 
 var _pages = require("./pages");
 
+var _privateroute = _interopRequireDefault(require("../src/components/privateroute/privateroute"));
+
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
@@ -37363,13 +37704,15 @@ function App() {
     path: ROUTES.SIGN_IN
   }, /*#__PURE__*/_react.default.createElement(_pages.Signin, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.SIGN_UP
-  }, /*#__PURE__*/_react.default.createElement(_pages.Signup, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: ROUTES.BROWSE
-  }, /*#__PURE__*/_react.default.createElement(_pages.Browse, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react.default.createElement(_pages.Signup, null)), /*#__PURE__*/_react.default.createElement(_privateroute.default, {
+    exact: true,
+    path: ROUTES.BROWSE,
+    component: _pages.Browse
+  }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: ROUTES.HOME
   }, /*#__PURE__*/_react.default.createElement(_pages.Home, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./constants/routes":"src/constants/routes.js","./pages":"src/pages/index.js"}],"src/constants/firebase.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./constants/routes":"src/constants/routes.js","./pages":"src/pages/index.js","../src/components/privateroute/privateroute":"src/components/privateroute/privateroute.js"}],"src/constants/firebase.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37388,40 +37731,20 @@ var FIREBASE_MESSAGING_ID = "853870448357";
 exports.FIREBASE_MESSAGING_ID = FIREBASE_MESSAGING_ID;
 var FIREBASE_API_ID = "1:853870448357:web:396441e719e96f288f4e0c";
 exports.FIREBASE_API_ID = FIREBASE_API_ID;
-},{}],"src/index.js":[function(require,module,exports) {
+},{}],"src/firebase.js":[function(require,module,exports) {
 "use strict";
 
-var _react = _interopRequireWildcard(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _globalStyles = require("./global-styles");
-
-var _app = require("./app");
-
-var _AuthContext = require("./contexts/AuthContext");
-
-var _firebase = require("./contexts/firebase");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initFirebase = initFirebase;
+exports.default = void 0;
 
 var FIREBASE_CONSTANTS = _interopRequireWildcard(require("./constants/firebase"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var firebaseConfig = {
   apiKey: FIREBASE_CONSTANTS.FIREBASE_API_KEY,
@@ -37431,31 +37754,35 @@ var firebaseConfig = {
   messagingSenderId: FIREBASE_CONSTANTS.FIREBASE_MESSAGING_ID,
   appId: FIREBASE_CONSTANTS.FIREBASE_API_ID
 };
+var app;
 
-var AuthProvider = function AuthProvider(_ref) {
-  var children = _ref.children;
+function initFirebase() {
+  app = window.firebase.initializeApp(firebaseConfig);
+}
 
-  var _useState = (0, _react.useState)({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      user = _useState2[0],
-      setProfile = _useState2[1];
+var _default = app;
+exports.default = _default;
+},{"./constants/firebase":"src/constants/firebase.js"}],"src/index.js":[function(require,module,exports) {
+"use strict";
 
-  return /*#__PURE__*/_react.default.createElement(_AuthContext.AuthContext.Provider, {
-    value: {
-      user: user,
-      setProfile: setProfile
-    }
-  }, children);
-};
+var _react = _interopRequireDefault(require("react"));
 
-var firebaseInit = window.firebase.initializeApp(firebaseConfig);
+var _reactDom = _interopRequireDefault(require("react-dom"));
 
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_firebase.FirebaseContext.Provider, {
-  value: {
-    firebase: window.firebase
-  }
-}, /*#__PURE__*/_react.default.createElement(AuthProvider, null, /*#__PURE__*/_react.default.createElement(_globalStyles.GlobalStyles, null), /*#__PURE__*/_react.default.createElement(_app.App, null)))), document.getElementById("root"));
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./global-styles":"src/global-styles.js","./app":"src/app.js","./contexts/AuthContext":"src/contexts/AuthContext.js","./contexts/firebase":"src/contexts/firebase.js","./constants/firebase":"src/constants/firebase.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var _globalStyles = require("./global-styles");
+
+var _app = require("./app");
+
+var _firebase = _interopRequireDefault(require("./contexts/firebase"));
+
+var _firebase2 = require("./firebase");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _firebase2.initFirebase)();
+
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_firebase.default, null, /*#__PURE__*/_react.default.createElement(_globalStyles.GlobalStyles, null), /*#__PURE__*/_react.default.createElement(_app.App, null))), document.getElementById("root"));
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./global-styles":"src/global-styles.js","./app":"src/app.js","./contexts/firebase":"src/contexts/firebase.js","./firebase":"src/firebase.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -37483,7 +37810,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4167" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1429" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

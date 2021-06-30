@@ -1,17 +1,15 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Form } from "../components";
 import { HeaderContainer } from "../containers/header";
 import { FooterContainer } from "../containers/footer";
 import * as ROUTES from "../constants/routes";
-import { FirebaseContext } from "../contexts/firebase";
-import { useAuth } from "../contexts/AuthContext";
+import { useFirebase } from "../contexts/firebase";
 
 export default function Signup() {
-  const { user, setProfile } = useAuth();
-
+  const { user, setProfile, firebase } = useFirebase();
   const history = useHistory();
-  const { firebase } = useContext(FirebaseContext);
+
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,6 +34,7 @@ export default function Signup() {
               displayName: firstName,
               photoURL: Math.floor(Math.random() * 5) + 1,
             });
+            localStorage.setItem("auth", JSON.stringify({ loggedIn: true }));
             setEmail("");
             setPassword("");
             setError("");
