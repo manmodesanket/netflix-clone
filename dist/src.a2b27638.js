@@ -36784,7 +36784,72 @@ Profiles.Name = function ProfilesName(_ref6) {
 
 var _default = Profiles;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./styles/profiles":"src/components/profiles/styles/profiles.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/profiles":"src/components/profiles/styles/profiles.js"}],"src/components/loading/styles/loading.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Picture = exports.Spinner = exports.ReleaseBody = exports.LockBody = void 0;
+
+var _styledComponents = _interopRequireWildcard(require("styled-components"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var LockBody = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    body {\n        overflow: hidden;\n    }\n"])));
+exports.LockBody = LockBody;
+var ReleaseBody = (0, _styledComponents.createGlobalStyle)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    body {\n        overflow: visible;\n    }\n"])));
+exports.ReleaseBody = ReleaseBody;
+
+var Spinner = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background-color: black;\n  z-index: 999;\n\n  :after {\n    content: \"\";\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    background-image: url(/images/misc/spinner.png);\n    background-size: contain;\n    background-repeat: no-repeat;\n    margin-top: -150px;\n    margin-left: -75px;\n    width: 150px;\n    height: 150px;\n    animation-name: spin;\n    animation-duration: 1000ms;\n    animation-iteration-count: infinite;\n    animation-timing-function: linear;\n  }\n\n  @-ms-keyframes spin {\n    from {\n      -ms-transform: rotate(0deg);\n    }\n    to {\n      -ms-transform: rotate(360deg);\n    }\n  }\n\n  @-moz-keyframes spin {\n    from {\n      -moz-transform: rotate(0deg);\n    }\n    to {\n      -moz-transform: rotate(360deg);\n    }\n  }\n\n  @-webkit-keyframes spin {\n    from {\n      -webkit-transform: rotate(0deg);\n    }\n    to {\n      -webkit-transform: rotate(360deg);\n    }\n  }\n\n  @keyframes spin {\n    from {\n      transform: rotate(0deg);\n    }\n    to {\n      transform: rotate(360deg);\n    }\n  }\n"])));
+
+exports.Spinner = Spinner;
+
+var Picture = _styledComponents.default.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  width: 50px;\n  height: 50px;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin-top: -100px;\n  margin-left: -22px;\n"])));
+
+exports.Picture = Picture;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/loading/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _loading = require("./styles/loading");
+
+var _excluded = ["src"];
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var Loading = function Loading(_ref) {
+  var src = _ref.src,
+      restProps = _objectWithoutProperties(_ref, _excluded);
+
+  return /*#__PURE__*/_react.default.createElement(_loading.Spinner, null, /*#__PURE__*/_react.default.createElement(_loading.LockBody, null), /*#__PURE__*/_react.default.createElement(_loading.Picture, {
+    src: "/images/users/".concat(src, ".png")
+  }));
+};
+
+Loading.ReleaseBody = function () {
+  return /*#__PURE__*/_react.default.createElement(_loading.ReleaseBody, null);
+};
+
+var _default = Loading;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./styles/loading":"src/components/loading/styles/loading.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36838,6 +36903,12 @@ Object.defineProperty(exports, "Profiles", {
     return _profiles.default;
   }
 });
+Object.defineProperty(exports, "Loading", {
+  enumerable: true,
+  get: function () {
+    return _loading.default;
+  }
+});
 
 var _accordian = _interopRequireDefault(require("./accordian"));
 
@@ -36855,8 +36926,10 @@ var _form = _interopRequireDefault(require("./form"));
 
 var _profiles = _interopRequireDefault(require("./profiles"));
 
+var _loading = _interopRequireDefault(require("./loading"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js","./opt-form":"src/components/opt-form/index.js","./header":"src/components/header/index.js","./feature":"src/components/feature/index.js","./form":"src/components/form/index.js","./profiles":"src/components/profiles/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
+},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js","./opt-form":"src/components/opt-form/index.js","./header":"src/components/header/index.js","./feature":"src/components/feature/index.js","./form":"src/components/form/index.js","./profiles":"src/components/profiles/index.js","./loading":"src/components/loading/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
 module.exports = [{
   "id": 1,
   "header": "What is Netflix?",
@@ -37532,8 +37605,18 @@ function BrowseContainer() {
     setProfile(null);
   };
 
+  (0, _react.useEffect)(function () {
+    if (user != null) {
+      setTimeout(function () {
+        setLoading(false);
+      }, 500);
+    }
+  });
+
   if (user) {
-    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_components.Header, {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, loading ? /*#__PURE__*/_react.default.createElement(_components.Loading, {
+      src: user.photoURL
+    }) : /*#__PURE__*/_react.default.createElement(_components.Loading.ReleaseBody, null), /*#__PURE__*/_react.default.createElement(_components.Header, {
       src: "joker1",
       dontShowOnSmallViewPort: true
     }, /*#__PURE__*/_react.default.createElement(_components.Header.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Logo, {
@@ -37810,7 +37893,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1429" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4134" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

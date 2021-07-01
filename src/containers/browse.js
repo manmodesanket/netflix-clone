@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Header } from "../components";
 import * as ROUTES from "../constants/routes";
 import { useFirebase } from "../contexts/firebase";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
 import { Redirect } from "react-router-dom";
+import { Loading } from "../components";
 
 export function BrowseContainer() {
   const { user, setProfile, firebase } = useFirebase();
@@ -19,9 +20,18 @@ export function BrowseContainer() {
     setProfile(null);
   };
 
+  useEffect(() => {
+    if (user != null) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    }
+  });
+
   if (user) {
     return (
       <>
+        {loading ? <Loading src={user.photoURL} /> : <Loading.ReleaseBody />}
         <Header src="joker1" dontShowOnSmallViewPort>
           <Header.Frame>
             <Header.Group>
