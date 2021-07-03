@@ -37539,7 +37539,117 @@ function SelectProfileContainer() {
     src: user.photoURL
   }), /*#__PURE__*/_react.default.createElement(_components.Profiles.Name, null, user.displayName)))))))));
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js"}],"src/hooks/useContent.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js"}],"src/containers/browse.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.BrowseContainer = BrowseContainer;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _components = require("../components");
+
+var ROUTES = _interopRequireWildcard(require("../constants/routes"));
+
+var _firebase = require("../contexts/firebase");
+
+var _profiles = require("./profiles");
+
+var _footer = require("./footer");
+
+var _reactRouterDom = require("react-router-dom");
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function BrowseContainer() {
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      user = _useFirebase.user,
+      setProfile = _useFirebase.setProfile,
+      firebase = _useFirebase.firebase;
+
+  var currentUser = firebase.auth().currentUser;
+
+  var _useState = (0, _react.useState)("series"),
+      _useState2 = _slicedToArray(_useState, 2),
+      category = _useState2[0],
+      setCategory = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loading = _useState4[0],
+      setLoading = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(""),
+      _useState6 = _slicedToArray(_useState5, 2),
+      searchTerm = _useState6[0],
+      setSearchTerm = _useState6[1];
+
+  var handleSignout = function handleSignout() {
+    firebase.auth().signOut();
+    setProfile(null);
+  };
+
+  (0, _react.useEffect)(function () {
+    if (user != null) {
+      setTimeout(function () {
+        setLoading(false);
+      }, 500);
+    }
+  });
+
+  if (user) {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, loading ? /*#__PURE__*/_react.default.createElement(_components.Loading, {
+      src: user.photoURL
+    }) : /*#__PURE__*/_react.default.createElement(_components.Loading.ReleaseBody, null), /*#__PURE__*/_react.default.createElement(_components.Header, {
+      src: "joker1",
+      dontShowOnSmallViewPort: true
+    }, /*#__PURE__*/_react.default.createElement(_components.Header.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Logo, {
+      to: ROUTES.HOME,
+      src: "/images/misc/logo.svg",
+      alt: "Netflix"
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
+      active: category === "series" ? "true" : "false",
+      onClick: function onClick() {
+        return setCategory("series");
+      }
+    }, "Series"), /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
+      active: category === "films" ? "true" : "false",
+      onClick: function onClick() {
+        return setCategory("films");
+      }
+    }, "Films")), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Search, {
+      searchTerm: searchTerm,
+      setSearchTerm: setSearchTerm
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Profile, null, /*#__PURE__*/_react.default.createElement(_components.Header.Picture, {
+      src: user.photoURL
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Dropdown, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Picture, {
+      src: user.photoURL
+    }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, null, user.displayName)), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
+      onClick: handleSignout
+    }, "Sign out")))))), /*#__PURE__*/_react.default.createElement(_components.Header.Feature, null, /*#__PURE__*/_react.default.createElement(_components.Header.FeatureCallOut, null, "Watch Joker Now"), /*#__PURE__*/_react.default.createElement(_components.Header.Text, null, "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him."), /*#__PURE__*/_react.default.createElement(_components.Header.PlayButton, null, "Play"))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+  } else {
+    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
+      to: ROUTES.HOME
+    });
+  }
+}
+},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","./profiles":"src/containers/profiles.js","./footer":"src/containers/footer.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/hooks/useContent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37612,125 +37722,89 @@ Object.defineProperty(exports, "useContent", {
 var _useContent = _interopRequireDefault(require("./useContent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./useContent":"src/hooks/useContent.js"}],"src/containers/browse.js":[function(require,module,exports) {
+},{"./useContent":"src/hooks/useContent.js"}],"src/utils/selectionMap.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BrowseContainer = BrowseContainer;
+exports.default = _default;
 
-var _react = _interopRequireWildcard(require("react"));
-
-var _components = require("../components");
-
-var ROUTES = _interopRequireWildcard(require("../constants/routes"));
-
-var _firebase = require("../contexts/firebase");
-
-var _profiles = require("./profiles");
-
-var _footer = require("./footer");
-
-var _reactRouterDom = require("react-router-dom");
-
-var _hooks = require("../hooks");
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function BrowseContainer() {
-  var _useFirebase = (0, _firebase.useFirebase)(),
-      user = _useFirebase.user,
-      setProfile = _useFirebase.setProfile,
-      firebase = _useFirebase.firebase;
-
-  var currentUser = firebase.auth().currentUser;
-
-  var _useState = (0, _react.useState)("series"),
-      _useState2 = _slicedToArray(_useState, 2),
-      category = _useState2[0],
-      setCategory = _useState2[1];
-
-  var _useState3 = (0, _react.useState)(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      loading = _useState4[0],
-      setLoading = _useState4[1];
-
-  var _useState5 = (0, _react.useState)(""),
-      _useState6 = _slicedToArray(_useState5, 2),
-      searchTerm = _useState6[0],
-      setSearchTerm = _useState6[1];
-
-  var _useContent = (0, _hooks.useContent)("films"),
-      films = _useContent.films;
-
-  var _useContent2 = (0, _hooks.useContent)("series"),
-      series = _useContent2.series;
-
-  var handleSignout = function handleSignout() {
-    firebase.auth().signOut();
-    setProfile(null);
+function _default(_ref) {
+  var series = _ref.series,
+      films = _ref.films;
+  return {
+    series: [{
+      title: "Documentaries",
+      data: series ? series.filter(function (item) {
+        return item.genre === "documentaries";
+      }) : []
+    }, {
+      title: "Comedies",
+      data: series ? series.filter(function (item) {
+        return item.genre === "comedies";
+      }) : []
+    }, {
+      title: "Children",
+      data: series ? series.filter(function (item) {
+        return item.genre === "children";
+      }) : []
+    }, {
+      title: "Crime",
+      data: series ? series.filter(function (item) {
+        return item.genre === "crime";
+      }) : []
+    }, {
+      title: "Feel Good",
+      data: series ? series.filter(function (item) {
+        return item.genre === "feel-good";
+      }) : []
+    }],
+    films: [{
+      title: "Drama Good",
+      data: films ? films.filter(function (item) {
+        return item.genre === "drama";
+      }) : []
+    }, {
+      title: "Thriller",
+      data: films ? films.filter(function (item) {
+        return item.genre === "thriller";
+      }) : []
+    }, {
+      title: "Children",
+      data: films ? films.filter(function (item) {
+        return item.genre === "children";
+      }) : []
+    }, {
+      title: "Suspense",
+      data: films ? films.filter(function (item) {
+        return item.genre === "suspense";
+      }) : []
+    }, {
+      title: "Romance",
+      data: films ? films.filter(function (item) {
+        return item.genre === "romance";
+      }) : []
+    }]
   };
-
-  (0, _react.useEffect)(function () {
-    if (user != null) {
-      setTimeout(function () {
-        setLoading(false);
-      }, 500);
-    }
-  });
-
-  if (user) {
-    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, loading ? /*#__PURE__*/_react.default.createElement(_components.Loading, {
-      src: user.photoURL
-    }) : /*#__PURE__*/_react.default.createElement(_components.Loading.ReleaseBody, null), /*#__PURE__*/_react.default.createElement(_components.Header, {
-      src: "joker1",
-      dontShowOnSmallViewPort: true
-    }, /*#__PURE__*/_react.default.createElement(_components.Header.Frame, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Logo, {
-      to: ROUTES.HOME,
-      src: "/images/misc/logo.svg",
-      alt: "Netflix"
-    }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
-      active: category === "series" ? "true" : "false",
-      onClick: function onClick() {
-        return setCategory("series");
-      }
-    }, "Series"), /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
-      active: category === "films" ? "true" : "false",
-      onClick: function onClick() {
-        return setCategory("films");
-      }
-    }, "Films")), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Search, {
-      searchTerm: searchTerm,
-      setSearchTerm: setSearchTerm
-    }), /*#__PURE__*/_react.default.createElement(_components.Header.Profile, null, /*#__PURE__*/_react.default.createElement(_components.Header.Picture, {
-      src: user.photoURL
-    }), /*#__PURE__*/_react.default.createElement(_components.Header.Dropdown, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Picture, {
-      src: user.photoURL
-    }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, null, user.displayName)), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
-      onClick: handleSignout
-    }, "Sign out")))))), /*#__PURE__*/_react.default.createElement(_components.Header.Feature, null, /*#__PURE__*/_react.default.createElement(_components.Header.FeatureCallOut, null, "Watch Joker Now"), /*#__PURE__*/_react.default.createElement(_components.Header.Text, null, "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him."), /*#__PURE__*/_react.default.createElement(_components.Header.PlayButton, null, "Play"))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
-  } else {
-    return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
-      to: ROUTES.HOME
-    });
-  }
 }
-},{"react":"node_modules/react/index.js","../components":"src/components/index.js","../constants/routes":"src/constants/routes.js","../contexts/firebase":"src/contexts/firebase.js","./profiles":"src/containers/profiles.js","./footer":"src/containers/footer.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../hooks":"src/hooks/index.js"}],"src/pages/browse.js":[function(require,module,exports) {
+},{}],"src/utils/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "selectionMap", {
+  enumerable: true,
+  get: function () {
+    return _selectionMap.default;
+  }
+});
+
+var _selectionMap = _interopRequireDefault(require("./selectionMap"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./selectionMap":"src/utils/selectionMap.js"}],"src/pages/browse.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37742,15 +37816,30 @@ var _react = _interopRequireDefault(require("react"));
 
 var _browse = require("../containers/browse");
 
+var _hooks = require("../hooks");
+
+var _utils = require("../utils");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Browse = function Browse() {
+  var _useContent = (0, _hooks.useContent)("films"),
+      films = _useContent.films;
+
+  var _useContent2 = (0, _hooks.useContent)("series"),
+      series = _useContent2.series;
+
+  var slides = (0, _utils.selectionMap)({
+    series: series,
+    films: films
+  });
+  console.log(slides);
   return /*#__PURE__*/_react.default.createElement(_browse.BrowseContainer, null);
 };
 
 var _default = Browse;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../containers/browse":"src/containers/browse.js"}],"src/pages/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/browse":"src/containers/browse.js","../hooks":"src/hooks/index.js","../utils":"src/utils/index.js"}],"src/pages/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

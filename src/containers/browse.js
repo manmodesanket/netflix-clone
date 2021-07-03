@@ -6,7 +6,6 @@ import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
 import { Redirect } from "react-router-dom";
 import { Loading } from "../components";
-import { useContent } from "../hooks";
 
 export function BrowseContainer() {
   const { user, setProfile, firebase } = useFirebase();
@@ -14,8 +13,6 @@ export function BrowseContainer() {
   const [category, setCategory] = useState("series");
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  const { films } = useContent("films");
-  const { series } = useContent("series");
 
   const handleSignout = () => {
     firebase.auth().signOut();
