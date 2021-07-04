@@ -26,7 +26,7 @@ export default function ({ series, films }) {
     ],
     films: [
       {
-        title: "Drama Good",
+        title: "Drama",
         data: films ? films.filter((item) => item.genre === "drama") : [],
       },
       {

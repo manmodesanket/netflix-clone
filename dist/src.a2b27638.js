@@ -36849,7 +36849,264 @@ Loading.ReleaseBody = function () {
 
 var _default = Loading;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./styles/loading":"src/components/loading/styles/loading.js"}],"src/components/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./styles/loading":"src/components/loading/styles/loading.js"}],"src/components/card/styles/card.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Maturity = exports.Content = exports.FeatureClose = exports.FeatureTitle = exports.Feature = exports.FeatureText = exports.Item = exports.Image = exports.Meta = exports.Entities = exports.Text = exports.SubTitle = exports.Group = exports.Container = exports.Title = void 0;
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Title = _styledComponents.default.p(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  font-size: 1.5rem;\n  color: #e5e5e5;\n  font-weight: bold;\n  margin-left: 3rem;\n  margin-right: 3rem;\n  margin-top: 0;\n  margin-bottom: 1rem;\n"])));
+
+exports.Title = Title;
+
+var Container = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 3rem;\n  box-sizing: border-box;\n\n  > ", " {\n    @media (max-width: 1000px) {\n      margin-left: 1.5rem;\n    }\n  }\n\n  &:last-of-type {\n    margin-bottom: 0;\n  }\n"])), Title);
+
+exports.Container = Container;
+
+var Group = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: ", ";\n  ", ";\n  ", ";\n\n  > ", ":first-of-type {\n        @media (min-width: 1100px) {\n          margin-top: 50px;\n    }  \n"])), function (_ref) {
+  var flexDirection = _ref.flexDirection;
+  return flexDirection === "row" ? "row" : "column";
+}, function (_ref2) {
+  var alignItems = _ref2.alignItems;
+  return alignItems && "align-items: ".concat(alignItems);
+}, function (_ref3) {
+  var margin = _ref3.margin;
+  return margin && "margin: ".concat(margin);
+}, Container);
+
+exports.Group = Group;
+
+var SubTitle = _styledComponents.default.p(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  font-size: 12px;\n  color: white;\n  font-weight: bold;\n  margin-top: 0;\n  margin-bottom: 0;\n  user-select: none;\n  display: none;\n"])));
+
+exports.SubTitle = SubTitle;
+
+var Text = _styledComponents.default.p(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  margin-top: 5px;\n  font-size: 10px;\n  color: white;\n  margin-bottom: 0;\n  user-select: none;\n  display: none;\n  line-height: normal;\n"])));
+
+exports.Text = Text;
+
+var Entities = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n"])));
+
+exports.Entities = Entities;
+
+var Meta = _styledComponents.default.div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  display: none;\n  position: absolute;\n  bottom: 0;\n  padding: 10px;\n  background-color: #0000008f;\n"])));
+
+exports.Meta = Meta;
+
+var Image = _styledComponents.default.img(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  border: 0;\n  width: 100%;\n  max-width: 305px;\n  cursor: pointer;\n  height: auto;\n  padding: 0;\n  margin: 0;\n"])));
+
+exports.Image = Image;
+
+var Item = _styledComponents.default.div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  margin-right: 5px;\n  position: relative;\n  cursor: pointer;\n  transition: transform 0.2;\n\n  &:hover {\n    transform: scale(1.3);\n    z-index: 99;\n  }\n\n  @media (min-width: 1000px) {\n    &:hover ", ", &:hover ", ", &:hover ", " {\n      display: block;\n      z-index: 100;\n    }\n  }\n\n  &:first-of-type {\n    margin-left: 3rem;\n    @media (max-width: 1000px) {\n      margin-left: 30px;\n    }\n  }\n\n  &:last-of-type {\n    margin-right: 3.5rem;\n\n    @media (max-width: 1000px) {\n      margin-right: 1.9rem;\n    }\n  }\n"])), Meta, Text, SubTitle);
+
+exports.Item = Item;
+
+var FeatureText = _styledComponents.default.p(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  font-size: 1.25rem;\n  color: white;\n  font-weight: ", ";\n  margin: 0;\n\n  @media (max-width: 800px) {\n    line-height: 1.725rem;\n  }\n"])), function (_ref4) {
+  var fontWeight = _ref4.fontWeight;
+  fontWeight === "bold" ? "bold" : "normal";
+});
+
+exports.FeatureText = FeatureText;
+
+var Feature = _styledComponents.default.div(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  background: url(", ");\n  background-size: contain;\n  position: relative;\n  height: 360px;\n  background-position-x: right;\n  background-repeat: no-repeat;\n  background-color: black;\n\n  @media (max-width: 1000px) {\n    height: auto;\n    background-size: auto;\n\n    ", " {\n      font-size: 1.25rem;\n      line-height: 1.25rem;\n      margin-bottom: 0.5rem;\n    }\n    ", " {\n      font-size: 0.725rem;\n    }\n  }\n"])), function (_ref5) {
+  var src = _ref5.src;
+  return src;
+}, Title, FeatureText);
+
+exports.Feature = Feature;
+var FeatureTitle = (0, _styledComponents.default)(Title)(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  margin-left: 0;\n"])));
+exports.FeatureTitle = FeatureTitle;
+
+var FeatureClose = _styledComponents.default.button(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  color: white;\n  position: absolute;\n  right: 20px;\n  top: 20px;\n  cursor: pointer;\n  background-color: transparent;\n  border: 0;\n\n  img {\n    filter: brightness(0) invert(1);\n    width: 24px;\n  }\n"])));
+
+exports.FeatureClose = FeatureClose;
+
+var Content = _styledComponents.default.div(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n  margin: 56px;\n  max-width: 500px;\n  line-height: normal;\n\n  @media (max-width: 1000px) {\n    margin: 30px;\n    max-width: none;\n  }\n"])));
+
+exports.Content = Content;
+
+var Maturity = _styledComponents.default.div(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n  background-color: ", ";\n  border-radius: 15px;\n  width: 20px;\n  padding: 5px;\n  text-align: center;\n  color: white;\n  font-weight: bold;\n  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);\n  margin-right: 10px;\n  font-size: 12px;\n"])), function (_ref6) {
+  var rating = _ref6.rating;
+  return rating >= 15 ? "red" : "green";
+});
+
+exports.Maturity = Maturity;
+},{"styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/card/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _card = require("./styles/card");
+
+var _excluded = ["children"],
+    _excluded2 = ["children"],
+    _excluded3 = ["children"],
+    _excluded4 = ["children"],
+    _excluded5 = ["children"],
+    _excluded6 = ["children"],
+    _excluded7 = ["children"],
+    _excluded8 = ["children", "item"],
+    _excluded9 = ["children", "category"];
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
+var FeatureContext = (0, _react.createContext)();
+
+var Card = function Card(_ref) {
+  var children = _ref.children,
+      restProps = _objectWithoutProperties(_ref, _excluded);
+
+  var _useState = (0, _react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showFeature = _useState2[0],
+      setShowFeature = _useState2[1];
+
+  var _useState3 = (0, _react.useState)({}),
+      _useState4 = _slicedToArray(_useState3, 2),
+      itemFeature = _useState4[0],
+      setItemFeature = _useState4[1];
+
+  return /*#__PURE__*/_react.default.createElement(FeatureContext.Provider, {
+    value: {
+      setItemFeature: setItemFeature,
+      setShowFeature: setShowFeature,
+      showFeature: showFeature,
+      itemFeature: itemFeature
+    }
+  }, /*#__PURE__*/_react.default.createElement(_card.Container, restProps, children));
+};
+
+Card.Group = function (_ref2) {
+  var children = _ref2.children,
+      restProps = _objectWithoutProperties(_ref2, _excluded2);
+
+  return /*#__PURE__*/_react.default.createElement(_card.Group, restProps, children);
+};
+
+Card.Title = function (_ref3) {
+  var children = _ref3.children,
+      restProps = _objectWithoutProperties(_ref3, _excluded3);
+
+  return /*#__PURE__*/_react.default.createElement(_card.Title, restProps, children);
+};
+
+Card.SubTitle = function (_ref4) {
+  var children = _ref4.children,
+      restProps = _objectWithoutProperties(_ref4, _excluded4);
+
+  return /*#__PURE__*/_react.default.createElement(_card.SubTitle, restProps, children);
+};
+
+Card.Text = function (_ref5) {
+  var children = _ref5.children,
+      restProps = _objectWithoutProperties(_ref5, _excluded5);
+
+  return /*#__PURE__*/_react.default.createElement(_card.Text, restProps, children);
+};
+
+Card.Entities = function (_ref6) {
+  var children = _ref6.children,
+      restProps = _objectWithoutProperties(_ref6, _excluded6);
+
+  return /*#__PURE__*/_react.default.createElement(_card.Entities, restProps, children);
+};
+
+Card.Meta = function (_ref7) {
+  var children = _ref7.children,
+      restProps = _objectWithoutProperties(_ref7, _excluded7);
+
+  return /*#__PURE__*/_react.default.createElement(_card.Meta, restProps, children);
+};
+
+Card.Item = function (_ref8) {
+  var children = _ref8.children,
+      item = _ref8.item,
+      restProps = _objectWithoutProperties(_ref8, _excluded8);
+
+  var _useContext = (0, _react.useContext)(FeatureContext),
+      setItemFeature = _useContext.setItemFeature,
+      setShowFeature = _useContext.setShowFeature;
+
+  return /*#__PURE__*/_react.default.createElement(_card.Item, _extends({
+    onClick: function onClick() {
+      setItemFeature(item);
+      setShowFeature(true);
+    }
+  }, restProps), children);
+};
+
+Card.Image = function CardImage(_ref9) {
+  var restProps = Object.assign({}, _ref9);
+  return /*#__PURE__*/_react.default.createElement(_card.Image, restProps);
+};
+
+Card.Feature = function CardFeature(_ref10) {
+  var children = _ref10.children,
+      category = _ref10.category,
+      restProps = _objectWithoutProperties(_ref10, _excluded9);
+
+  var _useContext2 = (0, _react.useContext)(FeatureContext),
+      showFeature = _useContext2.showFeature,
+      itemFeature = _useContext2.itemFeature,
+      setShowFeature = _useContext2.setShowFeature;
+
+  return showFeature ? /*#__PURE__*/_react.default.createElement(_card.Feature, {
+    src: "/images/".concat(category, "/").concat(itemFeature.genre, "/").concat(itemFeature.slug, "/large.jpg")
+  }, /*#__PURE__*/_react.default.createElement(_card.Content, null, /*#__PURE__*/_react.default.createElement(_card.FeatureTitle, null, itemFeature.title), /*#__PURE__*/_react.default.createElement(_card.FeatureText, null, itemFeature.description), /*#__PURE__*/_react.default.createElement(_card.FeatureClose, {
+    onClick: function onClick() {
+      return setShowFeature(false);
+    }
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: "/images/icons/close.png",
+    alt: "Close"
+  })), /*#__PURE__*/_react.default.createElement(_card.Group, {
+    margin: "30px 0",
+    flexDirection: "row",
+    alignItems: "center"
+  }, /*#__PURE__*/_react.default.createElement(_card.Maturity, {
+    rating: itemFeature.maturity
+  }, itemFeature.maturity < 12 ? "U" : itemFeature.maturity), /*#__PURE__*/_react.default.createElement(_card.FeatureText, {
+    fontWeight: "bold"
+  }, itemFeature.genre.charAt(0).toUpperCase() + itemFeature.genre.slice(1))), children)) : null;
+};
+
+var _default = Card;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./styles/card":"src/components/card/styles/card.js"}],"src/components/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36909,6 +37166,12 @@ Object.defineProperty(exports, "Loading", {
     return _loading.default;
   }
 });
+Object.defineProperty(exports, "Card", {
+  enumerable: true,
+  get: function () {
+    return _card.default;
+  }
+});
 
 var _accordian = _interopRequireDefault(require("./accordian"));
 
@@ -36928,8 +37191,10 @@ var _profiles = _interopRequireDefault(require("./profiles"));
 
 var _loading = _interopRequireDefault(require("./loading"));
 
+var _card = _interopRequireDefault(require("./card"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js","./opt-form":"src/components/opt-form/index.js","./header":"src/components/header/index.js","./feature":"src/components/feature/index.js","./form":"src/components/form/index.js","./profiles":"src/components/profiles/index.js","./loading":"src/components/loading/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
+},{"./accordian":"src/components/accordian/index.js","./jumbotron":"src/components/jumbotron/index.js","./footer":"src/components/footer/index.js","./opt-form":"src/components/opt-form/index.js","./header":"src/components/header/index.js","./feature":"src/components/feature/index.js","./form":"src/components/form/index.js","./profiles":"src/components/profiles/index.js","./loading":"src/components/loading/index.js","./card":"src/components/card/index.js"}],"src/fixtures/faqs.json":[function(require,module,exports) {
 module.exports = [{
   "id": 1,
   "header": "What is Netflix?",
@@ -37577,7 +37842,9 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function BrowseContainer() {
+function BrowseContainer(_ref) {
+  var slides = _ref.slides;
+
   var _useFirebase = (0, _firebase.useFirebase)(),
       user = _useFirebase.user,
       setProfile = _useFirebase.setProfile,
@@ -37600,6 +37867,11 @@ function BrowseContainer() {
       searchTerm = _useState6[0],
       setSearchTerm = _useState6[1];
 
+  var _useState7 = (0, _react.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      slideRows = _useState8[0],
+      setSlideRows = _useState8[1];
+
   var handleSignout = function handleSignout() {
     firebase.auth().signOut();
     setProfile(null);
@@ -37612,6 +37884,9 @@ function BrowseContainer() {
       }, 500);
     }
   });
+  (0, _react.useEffect)(function () {
+    setSlideRows(slides[category]);
+  }, [slides, category]);
 
   if (user) {
     return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, loading ? /*#__PURE__*/_react.default.createElement(_components.Loading, {
@@ -37642,7 +37917,20 @@ function BrowseContainer() {
       src: user.photoURL
     }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, null, user.displayName)), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
       onClick: handleSignout
-    }, "Sign out")))))), /*#__PURE__*/_react.default.createElement(_components.Header.Feature, null, /*#__PURE__*/_react.default.createElement(_components.Header.FeatureCallOut, null, "Watch Joker Now"), /*#__PURE__*/_react.default.createElement(_components.Header.Text, null, "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him."), /*#__PURE__*/_react.default.createElement(_components.Header.PlayButton, null, "Play"))), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
+    }, "Sign out")))))), /*#__PURE__*/_react.default.createElement(_components.Header.Feature, null, /*#__PURE__*/_react.default.createElement(_components.Header.FeatureCallOut, null, "Watch Joker Now"), /*#__PURE__*/_react.default.createElement(_components.Header.Text, null, "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him."), /*#__PURE__*/_react.default.createElement(_components.Header.PlayButton, null, "Play"))), /*#__PURE__*/_react.default.createElement(_components.Card.Group, null, slideRows.map(function (slideItem) {
+      return /*#__PURE__*/_react.default.createElement(_components.Card, {
+        key: "".concat(category, "-").concat(slideItem.title.toLowerCase())
+      }, /*#__PURE__*/_react.default.createElement(_components.Card.Title, null, slideItem.title), /*#__PURE__*/_react.default.createElement(_components.Card.Entities, null, slideItem.data.map(function (item) {
+        return /*#__PURE__*/_react.default.createElement(_components.Card.Item, {
+          key: item.id,
+          item: item
+        }, /*#__PURE__*/_react.default.createElement(_components.Card.Image, {
+          src: "/images/".concat(category, "/").concat(item.genre, "/").concat(item.slug, "/small.jpg")
+        }), /*#__PURE__*/_react.default.createElement(_components.Card.Meta, null, /*#__PURE__*/_react.default.createElement(_components.Card.SubTitle, null, item.title), /*#__PURE__*/_react.default.createElement(_components.Card.Text, null, item.description)));
+      })), /*#__PURE__*/_react.default.createElement(_components.Card.Feature, {
+        category: category
+      }));
+    })), /*#__PURE__*/_react.default.createElement(_footer.FooterContainer, null));
   } else {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
       to: ROUTES.HOME
@@ -37761,7 +38049,7 @@ function _default(_ref) {
       }) : []
     }],
     films: [{
-      title: "Drama Good",
+      title: "Drama",
       data: films ? films.filter(function (item) {
         return item.genre === "drama";
       }) : []
@@ -37833,8 +38121,9 @@ var Browse = function Browse() {
     series: series,
     films: films
   });
-  console.log(slides);
-  return /*#__PURE__*/_react.default.createElement(_browse.BrowseContainer, null);
+  return /*#__PURE__*/_react.default.createElement(_browse.BrowseContainer, {
+    slides: slides
+  });
 };
 
 var _default = Browse;
@@ -38063,7 +38352,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2298" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3088" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

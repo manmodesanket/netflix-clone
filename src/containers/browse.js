@@ -5,14 +5,15 @@ import { useFirebase } from "../contexts/firebase";
 import { SelectProfileContainer } from "./profiles";
 import { FooterContainer } from "./footer";
 import { Redirect } from "react-router-dom";
-import { Loading } from "../components";
+import { Card, Loading } from "../components";
 
-export function BrowseContainer() {
+export function BrowseContainer({ slides }) {
   const { user, setProfile, firebase } = useFirebase();
   const currentUser = firebase.auth().currentUser;
   const [category, setCategory] = useState("series");
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [slideRows, setSlideRows] = useState([]);
 
   const handleSignout = () => {
     firebase.auth().signOut();
@@ -26,6 +27,10 @@ export function BrowseContainer() {
       }, 500);
     }
   });
+
+  useEffect(() => {
+    setSlideRows(slides[category]);
+  }, [slides, category]);
 
   if (user) {
     return (
@@ -84,6 +89,29 @@ export function BrowseContainer() {
             <Header.PlayButton>Play</Header.PlayButton>
           </Header.Feature>
         </Header>
+
+        <Card.Group>
+          {slideRows.map((slideItem) => (
+            <Card key={`${category}-${slideItem.title.toLowerCase()}`}>
+              <Card.Title>{slideItem.title}</Card.Title>
+              <Card.Entities>
+                {slideItem.data.map((item) => (
+                  <Card.Item key={item.id} item={item}>
+                    <Card.Image
+                      src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
+                    />
+                    <Card.Meta>
+                      <Card.SubTitle>{item.title}</Card.SubTitle>
+                      <Card.Text>{item.description}</Card.Text>
+                    </Card.Meta>
+                  </Card.Item>
+                ))}
+              </Card.Entities>
+              <Card.Feature category={category}></Card.Feature>
+            </Card>
+          ))}
+        </Card.Group>
+
         <FooterContainer />
       </>
     );
