@@ -15,7 +15,7 @@ export function HeaderContainer({ children }) {
           src="/images/misc/logo.svg"
           alt="Netflix"
         />
-        {user?.displayname ? null : (
+        {currentUser ? null : (
           <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
         )}
       </Header.Frame>

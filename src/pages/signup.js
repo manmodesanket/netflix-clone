@@ -34,10 +34,6 @@ export default function Signup() {
               displayName: firstName,
               photoURL: Math.floor(Math.random() * 5) + 1,
             });
-            localStorage.setItem("auth", JSON.stringify({ loggedIn: true }));
-            setEmail("");
-            setPassword("");
-            setError("");
             history.push(ROUTES.BROWSE);
           })
       )

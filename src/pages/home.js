@@ -10,9 +10,10 @@ import { useFirebase } from "../contexts/firebase";
 import * as ROUTES from "../constants/routes";
 
 const Home = () => {
-  const { user } = useFirebase();
+  const { firebase } = useFirebase();
+  const currentUser = firebase.auth().currentUser;
 
-  if (user?.displayname) {
+  if (currentUser) {
     return <Redirect to={ROUTES.BROWSE} />;
   } else {
     return (

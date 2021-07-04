@@ -18,7 +18,6 @@ export function BrowseContainer({ slides }) {
 
   const handleSignout = () => {
     firebase.auth().signOut();
-    setProfile(null);
   };
 
   useEffect(() => {
@@ -38,7 +37,6 @@ export function BrowseContainer({ slides }) {
       keys: ["data.description", "data.title", "data.genre"],
     });
     const results = fuse.search(searchTerm).map(({ item }) => item);
-    const results1 = fuse.search(searchTerm);
     if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
       setSlideRows(results);
     } else {
@@ -84,7 +82,9 @@ export function BrowseContainer({ slides }) {
                     <Header.Link>{user.displayName}</Header.Link>
                   </Header.Group>
                   <Header.Group>
-                    <Header.Link onClick={handleSignout}>Sign out</Header.Link>
+                    <Header.Link onClick={() => handleSignout()}>
+                      Sign out
+                    </Header.Link>
                   </Header.Group>
                 </Header.Dropdown>
               </Header.Profile>

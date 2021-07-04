@@ -10,10 +10,14 @@ const FirebaseProvider = ({ children }) => {
   const [user, setProfile] = useState({});
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      setProfile(user);
+    const listener = firebase.auth().onAuthStateChanged((user) => {
+      if (user != null) {
+        setProfile(user);
+      } else {
+        setProfile({});
+      }
     });
-    return () => {};
+    return () => listener();
   }, []);
 
   return (

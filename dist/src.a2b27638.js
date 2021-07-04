@@ -37550,10 +37550,16 @@ var FirebaseProvider = function FirebaseProvider(_ref) {
       setProfile = _useState2[1];
 
   (0, _react.useEffect)(function () {
-    firebase.auth().onAuthStateChanged(function (user) {
-      setProfile(user);
+    var listener = firebase.auth().onAuthStateChanged(function (user) {
+      if (user != null) {
+        setProfile(user);
+      } else {
+        setProfile({});
+      }
     });
-    return function () {};
+    return function () {
+      return listener();
+    };
   }, []);
   return /*#__PURE__*/_react.default.createElement(FirebaseContext.Provider, {
     value: {
@@ -37600,7 +37606,7 @@ function HeaderContainer(_ref) {
     to: ROUTES.HOME,
     src: "/images/misc/logo.svg",
     alt: "Netflix"
-  }), user !== null && user !== void 0 && user.displayname ? null : /*#__PURE__*/_react.default.createElement(_components.Header.ButtonLink, {
+  }), currentUser ? null : /*#__PURE__*/_react.default.createElement(_components.Header.ButtonLink, {
     to: ROUTES.SIGN_IN
   }, "Sign In")), children);
 }
@@ -37640,9 +37646,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Home = function Home() {
   var _useFirebase = (0, _firebase.useFirebase)(),
-      user = _useFirebase.user;
+      firebase = _useFirebase.firebase;
 
-  if (user !== null && user !== void 0 && user.displayname) {
+  var currentUser = firebase.auth().currentUser;
+
+  if (currentUser) {
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Redirect, {
       to: ROUTES.BROWSE
     });
@@ -37846,12 +37854,6 @@ function Signup() {
           displayName: firstName,
           photoURL: Math.floor(Math.random() * 5) + 1
         });
-        localStorage.setItem("auth", JSON.stringify({
-          loggedIn: true
-        }));
-        setEmail("");
-        setPassword("");
-        setError("");
         history.push(ROUTES.BROWSE);
       });
     }).catch(function (error) {
@@ -40137,7 +40139,6 @@ function BrowseContainer(_ref) {
 
   var handleSignout = function handleSignout() {
     firebase.auth().signOut();
-    setProfile(null);
   };
 
   (0, _react.useEffect)(function () {
@@ -40158,7 +40159,6 @@ function BrowseContainer(_ref) {
       var item = _ref2.item;
       return item;
     });
-    var results1 = fuse.search(searchTerm);
 
     if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
       setSlideRows(results);
@@ -40195,7 +40195,9 @@ function BrowseContainer(_ref) {
     }), /*#__PURE__*/_react.default.createElement(_components.Header.Dropdown, null, /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Picture, {
       src: user.photoURL
     }), /*#__PURE__*/_react.default.createElement(_components.Header.Link, null, user.displayName)), /*#__PURE__*/_react.default.createElement(_components.Header.Group, null, /*#__PURE__*/_react.default.createElement(_components.Header.Link, {
-      onClick: handleSignout
+      onClick: function onClick() {
+        return handleSignout();
+      }
     }, "Sign out")))))), /*#__PURE__*/_react.default.createElement(_components.Header.Feature, null, /*#__PURE__*/_react.default.createElement(_components.Header.FeatureCallOut, null, "Watch Joker Now"), /*#__PURE__*/_react.default.createElement(_components.Header.Text, null, "Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a futile attempt to feel like he's part of the world around him."), /*#__PURE__*/_react.default.createElement(_components.Header.PlayButton, null, "Play"))), /*#__PURE__*/_react.default.createElement(_components.Card.Group, null, slideRows.length > 0 && slideRows.map(function (slideItem) {
       return /*#__PURE__*/_react.default.createElement(_components.Card, {
         key: "".concat(category, "-").concat(slideItem.title.toLowerCase())
@@ -40273,6 +40275,60 @@ function useContent(target) {
   }, []);
   return _defineProperty({}, target, content);
 }
+},{"react":"node_modules/react/index.js","../contexts/firebase":"src/contexts/firebase.js"}],"src/hooks/use-auth-listener.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = require("react");
+
+var _firebase = require("../contexts/firebase");
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var useAuthListener = function useAuthListener() {
+  var _useState = (0, _react.useState)(JSON.parse(localStorage.getItem("authUser"))),
+      _useState2 = _slicedToArray(_useState, 2),
+      user = _useState2[0],
+      setUser = _useState2[1];
+
+  var _useFirebase = (0, _firebase.useFirebase)(),
+      firebase = _useFirebase.firebase;
+
+  (0, _react.useEffect)(function () {
+    var listener = firebase.auth().onAuthStateChanged(function (authUser) {
+      if (authUser) {
+        localStorage.setItem("authUser", JSON.stringify(authUser));
+        setUser(authUser);
+      } else {
+        localStorage.removeItem("authUser");
+        setUser(null);
+      }
+    });
+    return function () {
+      return listener();
+    };
+  }, []);
+  return {
+    user: user
+  };
+};
+
+var _default = useAuthListener;
+exports.default = _default;
 },{"react":"node_modules/react/index.js","../contexts/firebase":"src/contexts/firebase.js"}],"src/hooks/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -40285,11 +40341,19 @@ Object.defineProperty(exports, "useContent", {
     return _useContent.default;
   }
 });
+Object.defineProperty(exports, "useAuthListener", {
+  enumerable: true,
+  get: function () {
+    return _useAuthListener.default;
+  }
+});
 
 var _useContent = _interopRequireDefault(require("./useContent"));
 
+var _useAuthListener = _interopRequireDefault(require("./use-auth-listener"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./useContent":"src/hooks/useContent.js"}],"src/utils/selectionMap.js":[function(require,module,exports) {
+},{"./useContent":"src/hooks/useContent.js","./use-auth-listener":"src/hooks/use-auth-listener.js"}],"src/utils/selectionMap.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40631,7 +40695,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3088" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "4254" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
